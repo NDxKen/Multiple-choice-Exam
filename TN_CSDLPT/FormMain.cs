@@ -38,5 +38,39 @@ namespace TN_CSDLPT
                 f.Show();
             }
         }
+
+        private void btnGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(FormGV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Form f = new FormGV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }     
+
+        private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn muốn thoát chương trình", "Thông báo", MessageBoxButtons.OKCancel);
+            if (dialogResult == DialogResult.OK)
+            {
+                Program.userName = "";
+                Program.mLogin = "";
+                Program.password = "";
+                foreach (Form frm in this.MdiChildren)
+                {
+                    if (frm.ShowInTaskbar)
+                        frm.Close();
+                }
+                Program.formMain.Close();
+            }
+        }
+
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

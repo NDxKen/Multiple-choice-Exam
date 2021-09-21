@@ -93,3 +93,4 @@ C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\ru\DevExpress.Office.v
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.formMain.resources
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormMainStudent.resources
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormKhoa.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormGV.resources

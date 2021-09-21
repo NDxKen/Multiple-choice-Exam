@@ -102,17 +102,12 @@ namespace TN_CSDLPT
                     Program.mNhom = Program.myReader.GetString(2);
                     Program.myReader.Close();
 
-                    //check tài khoản trùng user,pass,  1: đúng   0:sai
-                    String strCheckAccount = "select dbo.F_CheckAccountStudent('" + txtLogin.Text + "','" + txtPassword.Text + "')";
-                    Program.myReader = Program.execSqlDataReader(strCheckAccount);
-                    if (Program.myReader == null) return;
-                    Program.myReader.Read();
-                    if (Program.myReader.GetInt32(0) == 0)
+                    //check tài khoản user,pass
+                    String strCheckAccount = "exec SP_CheckAccountStudent '" + txtLogin.Text.Trim() + "','" + txtPassword.Text.Trim() + "'";
+                    if(Program.execNonQuery(strCheckAccount) == 1)
                     {
-                        MessageBox.Show("Bạn nhập userName và password không đúng, vui lòng nhập lại");
                         return;
                     }
-                    Program.myReader.Close();
 
                     String strTimSV = "exec SP_FindStudent '" + txtLogin.Text.Trim() + "'"; //SP Tìm SV dựa vào mã
                     Program.myReader = Program.execSqlDataReader(strTimSV);
@@ -120,11 +115,10 @@ namespace TN_CSDLPT
                     Program.myReader.Read();
 
                     Program.userName = Program.myReader.GetString(0);
-                    Program.mHoTen = Program.myReader.GetString(1) + "" + Program.myReader.GetString(2);
+                    Program.mHoTen = Program.myReader.GetString(1) + " " + Program.myReader.GetString(2);
                     Program.svMaLop = Program.myReader.GetString(5);
                     Program.svTenLop = Program.myReader.GetString(6);
 
-                    MessageBox.Show(Program.userName);
                     if (Convert.IsDBNull(Program.userName))
                     {
                         MessageBox.Show("userName bạn nhập không có quyền truy cập dữ liệu\n Bạn xem lại userName, password", "Thông báo", MessageBoxButtons.OK);
@@ -137,8 +131,8 @@ namespace TN_CSDLPT
                     Program.formMainStudent.NHOM.Text = "Nhóm: " + Program.mNhom;
                     Program.formMainStudent.TENLOP.Text = "Lớp: " + Program.svTenLop;
                     
-                    this.Hide();                   
-                    //Program.formMainStudent.Activate();
+                    this.Hide();
+                    Program.formMainStudent.Activate();
                     Program.formMainStudent.Show();
                     Program.conn.Close();
                     Program.myReader.Close();

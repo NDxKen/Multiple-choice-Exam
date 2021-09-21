@@ -51,12 +51,23 @@ namespace TN_CSDLPT
             cbCoSo.ValueMember = "TEN_SERVER";
             cbCoSo.SelectedIndex = Program.mCoSo;
 
-            
+            panelControlBottom.Enabled = false;
+            //if(Program.mNhom == "TRUONG")
+            //{
+            //    cbCoSo.Enabled = true;
+            //} else
+            //{
+            //    cbCoSo.Enabled = false;
+            //}
+            if(Program.mNhom == "TRUONG" && Program.mNhom == "GIANGVIEN")
+            {
+                barSubThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnGhi.Enabled = false;
+            }
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cbCoSo.SelectedValue == null) return;
+            if (cbCoSo.SelectedValue == null) return;
             if (cbCoSo.SelectedValue.ToString() == "System.Data.DataRowView") return;
             Program.serverName = cbCoSo.SelectedValue.ToString();
             if(cbCoSo.SelectedIndex != Program.mCoSo)
@@ -93,6 +104,13 @@ namespace TN_CSDLPT
 
         private void btnThemKhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //if(Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
+            //{
+            //    MessageBox.Show("Bạn không có quyền này", "Thông báo", MessageBoxButtons.OK);
+            //}
+            panelControlBottom.Enabled = true;
+            bdsKhoa.AddNew();
+            txtMaKhoa.Focus();
 
         }
     }
