@@ -17,5 +17,31 @@ namespace TN_CSDLPT
         {
             InitializeComponent();
         }
+
+        private Form checkExists(Type ftype)
+        {
+            foreach(Form frm in this.MdiChildren)
+            {
+                if(frm.GetType() == ftype)
+                {
+                    return frm;
+                }
+            }
+            return null;
+        }
+
+        private void btnThi_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = checkExists(typeof(FormChonMonThi));
+            if(frm != null)
+            {
+                frm.Activate();
+            } else
+            {
+                Form f = new FormChonMonThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

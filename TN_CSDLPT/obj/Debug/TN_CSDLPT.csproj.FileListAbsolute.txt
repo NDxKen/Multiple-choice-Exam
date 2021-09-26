@@ -94,3 +94,12 @@ C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.formMain.res
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormMainStudent.resources
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormKhoa.resources
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormGV.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.dll
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.xml
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\de\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\es\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\ja\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\ru\DevExpress.XtraVerticalGrid.v19.2.resources.dll
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormLapLichThi.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormChonMonThi.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormThi.resources

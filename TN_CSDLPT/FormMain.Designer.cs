@@ -34,9 +34,11 @@ namespace TN_CSDLPT
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnKhoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnGV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -44,8 +46,8 @@ namespace TN_CSDLPT
             this.MAGV = new System.Windows.Forms.ToolStripStatusLabel();
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnLapLichThi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -59,10 +61,11 @@ namespace TN_CSDLPT
             this.ribbonControl1.SearchEditItem,
             this.btnKhoa,
             this.btnGV,
-            this.btnLogout});
+            this.btnLogout,
+            this.btnLapLichThi});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 6;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -87,11 +90,21 @@ namespace TN_CSDLPT
             this.btnGV.Name = "btnGV";
             this.btnGV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGV_ItemClick);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Caption = "Đăng xuất";
+            this.btnLogout.Id = 4;
+            this.btnLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.Image")));
+            this.btnLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.LargeImage")));
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup3,
+            this.ribbonPageGroup5,
             this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Danh mục";
@@ -107,6 +120,12 @@ namespace TN_CSDLPT
             this.ribbonPageGroup3.ItemLinks.Add(this.btnGV);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnLogout);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
             // ribbonPage2
             // 
@@ -155,20 +174,20 @@ namespace TN_CSDLPT
             this.NHOM.Size = new System.Drawing.Size(50, 20);
             this.NHOM.Text = "Nhóm";
             // 
-            // ribbonPageGroup4
+            // ribbonPageGroup5
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.btnLogout);
-            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnLapLichThi);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "ribbonPageGroup5";
             // 
-            // btnLogout
+            // btnLapLichThi
             // 
-            this.btnLogout.Caption = "Đăng xuất";
-            this.btnLogout.Id = 4;
-            this.btnLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.Image")));
-            this.btnLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.LargeImage")));
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
+            this.btnLapLichThi.Caption = "LẬP LỊCH THI";
+            this.btnLapLichThi.Id = 5;
+            this.btnLapLichThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLapLichThi.ImageOptions.Image")));
+            this.btnLapLichThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLapLichThi.ImageOptions.LargeImage")));
+            this.btnLapLichThi.Name = "btnLapLichThi";
+            this.btnLapLichThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapLichThi_ItemClick);
             // 
             // FormMain
             // 
@@ -210,6 +229,8 @@ namespace TN_CSDLPT
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
+        private DevExpress.XtraBars.BarButtonItem btnLapLichThi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
 

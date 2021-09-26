@@ -30,6 +30,7 @@ namespace TN_CSDLPT
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainStudent));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -40,6 +41,7 @@ namespace TN_CSDLPT
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
             this.TENLOP = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnThi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -50,9 +52,10 @@ namespace TN_CSDLPT
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
-            this.ribbon.SearchEditItem});
+            this.ribbon.SearchEditItem,
+            this.btnThi});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 1;
+            this.ribbon.MaxItemId = 2;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -68,6 +71,7 @@ namespace TN_CSDLPT
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnThi);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
@@ -120,6 +124,15 @@ namespace TN_CSDLPT
             this.TENLOP.Size = new System.Drawing.Size(58, 20);
             this.TENLOP.Text = "Tên lớp";
             // 
+            // btnThi
+            // 
+            this.btnThi.Caption = "THI";
+            this.btnThi.Id = 1;
+            this.btnThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnThi.Name = "btnThi";
+            this.btnThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThi_ItemClick);
+            // 
             // FormMainStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -155,5 +168,6 @@ namespace TN_CSDLPT
         public System.Windows.Forms.ToolStripStatusLabel HOTEN;
         public System.Windows.Forms.ToolStripStatusLabel NHOM;
         public System.Windows.Forms.ToolStripStatusLabel TENLOP;
+        private DevExpress.XtraBars.BarButtonItem btnThi;
     }
 }

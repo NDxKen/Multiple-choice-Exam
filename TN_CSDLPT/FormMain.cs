@@ -72,5 +72,19 @@ namespace TN_CSDLPT
         {
             Application.Exit();
         }
+
+        private void btnLapLichThi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(FormLapLichThi));
+            if(frm != null)
+            {
+                frm.Activate();
+            } else
+            {
+                FormLapLichThi f = new FormLapLichThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

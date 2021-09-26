@@ -63,7 +63,11 @@ namespace TN_CSDLPT
             btnGhi.Enabled = btnHuy.Enabled = btnPhucHoi.Enabled = false;
             pcBottom.Enabled = false;
 
-            if(Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
+            if(Program.mNhom == "COSO")
+            {
+                cbCoSo.Enabled = false;
+            }
+            else if(Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
             {
                 btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
             }
@@ -175,9 +179,9 @@ namespace TN_CSDLPT
                 String maGV = "";
                 try
                 {                   
-                    maGV = ((DataRowView)bdsGV[bdsGV.Position])["MAGV"].ToString();
-                    
+                    maGV = ((DataRowView)bdsGV[bdsGV.Position])["MAGV"].ToString();                   
                     this.bdsGV.RemoveCurrent();
+                    this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
                     this.gIAOVIENTableAdapter.Update(this.DS.GIAOVIEN);
                 }
                 catch(Exception ex)
