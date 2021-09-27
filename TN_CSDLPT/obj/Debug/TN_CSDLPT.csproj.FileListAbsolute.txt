@@ -92,7 +92,6 @@ C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\ja\DevExpress.Office.v
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\ru\DevExpress.Office.v19.2.Core.resources.dll
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.formMain.resources
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormMainStudent.resources
-C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormKhoa.resources
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormGV.resources
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.dll
 C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\bin\Debug\DevExpress.XtraVerticalGrid.v19.2.xml

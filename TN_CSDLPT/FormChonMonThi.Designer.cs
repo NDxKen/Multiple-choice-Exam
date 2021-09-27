@@ -103,6 +103,7 @@ namespace TN_CSDLPT
             this.colTHOIGIAN});
             this.gvGVDK.GridControl = this.gcGVDK;
             this.gvGVDK.Name = "gvGVDK";
+            this.gvGVDK.OptionsBehavior.Editable = false;
             // 
             // colMAMH
             // 

@@ -43,8 +43,6 @@ namespace TN_CSDLPT
             this.bODETableAdapter.Connection.ConnectionString = Program.connStr;
             this.bODETableAdapter.Fill(this.DS.BODE);
 
-
-
             cbCoSo.DataSource = Program.bdsDSPM;
             cbCoSo.DisplayMember = "TEN_COSO";
             cbCoSo.ValueMember = "TEN_SERVER";
@@ -53,21 +51,21 @@ namespace TN_CSDLPT
             dt = Program.execSqlDataTable("select MAKH, TENKH from KHOA");
             cbKhoa.ValueMember = "MAKH";
             cbKhoa.DataSource = dt;
-            cbKhoa.DisplayMember = "TENKH";         
+            cbKhoa.DisplayMember = "TENKH";
             cbKhoa.SelectedIndex = 0;
 
             maKH = cbKhoa.SelectedValue.ToString().Trim();
             this.bdsGV.Filter = "maKH = '" + maKH + "'";
 
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled  = true;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = btnPhucHoi.Enabled = false;
             pcBottom.Enabled = false;
 
-            if(Program.mNhom == "COSO")
+            if (Program.mNhom == "COSO")
             {
                 cbCoSo.Enabled = false;
             }
-            else if(Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
+            else if (Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
             {
                 btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
             }
@@ -77,17 +75,23 @@ namespace TN_CSDLPT
         {
             if (cbCoSo.SelectedValue == null) return;
             if (cbCoSo.SelectedValue.ToString() == "System.Data.DataRowView") return;
-            if(cbCoSo.SelectedIndex != Program.mCoSo)
+            if (cbCoSo.SelectedIndex != Program.mCoSo)
             {
                 Program.mLogin = Program.remoteLogin;
                 Program.password = Program.remotePassword;
+            }
+            else
+            {
+                Program.mLogin = Program.mLoginDN;
+                Program.password = Program.passwordDN;
             }
             Program.serverName = cbCoSo.SelectedValue.ToString();
             if (Program.ketNoi() == 0)
             {
                 MessageBox.Show("Lỗi kết nối tới cơ sở mới", "Thông báo", MessageBoxButtons.OK);
                 return;
-            } else
+            }
+            else
             {
                 // TODO: This line of code loads data into the 'dS.GIAOVIEN' table. You can move, or remove it, as needed.
                 this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connStr;
@@ -107,7 +111,7 @@ namespace TN_CSDLPT
                 cbKhoa.SelectedIndex = 0;
 
                 maKH = cbKhoa.SelectedValue.ToString().Trim();
-                this.bdsGV.Filter = "MAKH ='" + maKH + "'";              
+                this.bdsGV.Filter = "MAKH ='" + maKH + "'";
             }
         }
 
@@ -137,7 +141,7 @@ namespace TN_CSDLPT
             setupButtonFirst();
             isAdding = true;
             this.bdsGV.AddNew();
-            txtMaKhoa.Text = maKH;            
+            txtMaKhoa.Text = maKH;
             txtMaGV.Focus();
 
             //bug
@@ -146,7 +150,7 @@ namespace TN_CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(this.bdsGV.Count == 0)
+            if (this.bdsGV.Count == 0)
             {
                 MessageBox.Show("Không có giáo viên để sửa", "Thông báo", MessageBoxButtons.OK);
                 return;
@@ -174,17 +178,17 @@ namespace TN_CSDLPT
                 MessageBox.Show("Giáo viên có câu hỏi trong bộ đề, không thể xóa", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
-            else if(MessageBox.Show("Bạn có thật sự muốn xóa?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK) 
+            else if (MessageBox.Show("Bạn có thật sự muốn xóa?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 String maGV = "";
                 try
-                {                   
-                    maGV = ((DataRowView)bdsGV[bdsGV.Position])["MAGV"].ToString();                   
+                {
+                    maGV = ((DataRowView)bdsGV[bdsGV.Position])["MAGV"].ToString();
                     this.bdsGV.RemoveCurrent();
                     this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
                     this.gIAOVIENTableAdapter.Update(this.DS.GIAOVIEN);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi xóa giáo viên\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     this.gIAOVIENTableAdapter.Fill(this.DS.GIAOVIEN);
@@ -200,13 +204,13 @@ namespace TN_CSDLPT
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(txtMaGV.Text.Trim().Length == 0)
+            if (txtMaGV.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Mã giáo viên không được để trống", "Thông báo", MessageBoxButtons.OK);
                 txtMaGV.Focus();
                 return;
             }
-            if(txtHo.Text.Trim().Length == 0)
+            if (txtHo.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Họ không được để trống", "Thông báo", MessageBoxButtons.OK);
                 txtHo.Focus();
@@ -225,14 +229,15 @@ namespace TN_CSDLPT
                 return;
             }
 
-            if(isAdding)
+            if (isAdding)
             {
                 String strCheckTrungMaGV = "exec SP_CheckTrungMaGV '" + txtMaGV.Text.Trim() + "'";
-                if(Program.execNonQuery(strCheckTrungMaGV) == 1)
+                if (Program.execNonQuery(strCheckTrungMaGV) == 1)
                 {
                     txtMaGV.Focus();
                     return;
-                } else
+                }
+                else
                 {
                     try
                     {
@@ -248,9 +253,9 @@ namespace TN_CSDLPT
                     isAdding = false;
                     cbKhoa.Enabled = true;
                 }
-               
+
             }
-            else if(isEditting)
+            else if (isEditting)
             {
                 try
                 {
@@ -296,6 +301,7 @@ namespace TN_CSDLPT
 
             txtMaGV.Enabled = true;
             cbKhoa.Enabled = true;
-        }
+        }       
     }
+    
 }

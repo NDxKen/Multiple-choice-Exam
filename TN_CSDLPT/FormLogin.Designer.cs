@@ -29,7 +29,6 @@ namespace TN_CSDLPT
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -38,13 +37,7 @@ namespace TN_CSDLPT
             this.rdbGV = new System.Windows.Forms.RadioButton();
             this.rdbSV = new System.Windows.Forms.RadioButton();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.dS_DSPM = new TN_CSDLPT.DS_DSPM();
-            this.bdsDSPM = new System.Windows.Forms.BindingSource(this.components);
-            this.getSubcribersTableAdapter = new TN_CSDLPT.DS_DSPMTableAdapters.getSubcribersTableAdapter();
-            this.tableAdapterManager = new TN_CSDLPT.DS_DSPMTableAdapters.TableAdapterManager();
             this.cbCoSo = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dS_DSPM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsDSPM)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -119,30 +112,8 @@ namespace TN_CSDLPT
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // dS_DSPM
-            // 
-            this.dS_DSPM.DataSetName = "DS_DSPM";
-            this.dS_DSPM.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bdsDSPM
-            // 
-            this.bdsDSPM.DataMember = "getSubcribers";
-            this.bdsDSPM.DataSource = this.dS_DSPM;
-            // 
-            // getSubcribersTableAdapter
-            // 
-            this.getSubcribersTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = TN_CSDLPT.DS_DSPMTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // cbCoSo
             // 
-            this.cbCoSo.DataSource = this.bdsDSPM;
-            this.cbCoSo.DisplayMember = "TEN_COSO";
             this.cbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCoSo.FormattingEnabled = true;
             this.cbCoSo.Location = new System.Drawing.Point(180, 26);
@@ -150,6 +121,7 @@ namespace TN_CSDLPT
             this.cbCoSo.Size = new System.Drawing.Size(306, 24);
             this.cbCoSo.TabIndex = 10;
             this.cbCoSo.ValueMember = "TEN_SERVER";
+            this.cbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbCoSo_SelectedIndexChanged);
             // 
             // FormLogin
             // 
@@ -168,8 +140,6 @@ namespace TN_CSDLPT
             this.Name = "FormLogin";
             this.Text = "formLogin";
             this.Load += new System.EventHandler(this.formLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dS_DSPM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsDSPM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,10 +155,6 @@ namespace TN_CSDLPT
         private System.Windows.Forms.RadioButton rdbGV;
         private System.Windows.Forms.RadioButton rdbSV;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
-        private DS_DSPM dS_DSPM;
-        private System.Windows.Forms.BindingSource bdsDSPM;
-        private DS_DSPMTableAdapters.getSubcribersTableAdapter getSubcribersTableAdapter;
-        private DS_DSPMTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ComboBox cbCoSo;
     }
 }

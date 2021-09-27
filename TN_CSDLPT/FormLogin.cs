@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,23 +19,46 @@ namespace TN_CSDLPT
             InitializeComponent();
         }
 
-        
+        private int Ketnoi_CSDLGOC()
+        {
+            if (Program.conn != null && Program.conn.State == ConnectionState.Open)
+                Program.conn.Close();
+            try
+            {
+                Program.connStr = Program.connstr_publisher;
+                Program.conn.ConnectionString = Program.connStr;
+                Program.conn.Open();
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi kết nối CSDL gốc\n, Bạn xem lại tên Server của Publisher và tên CSDL trong chuỗi kết nối\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                return 0;
+            }
+        }
+
 
         private void formLogin_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS_DSPM.getSubcribers' table. You can move, or remove it, as needed.
-            this.getSubcribersTableAdapter.Fill(this.dS_DSPM.getSubcribers);
-            Program.serverName = cbCoSo.SelectedValue.ToString();
-            //MessageBox.Show(cbCoSo.SelectedValue.ToString()); // server site
-            //MessageBox.Show(cbCoSo.DisplayMember); //TEN_COSO
-            //MessageBox.Show(cbCoSo.SelectedIndex.ToString()); // vị trí 0 - 1
-            //MessageBox.Show(cbCoSo.ValueMember); // TEN_SERVER
-            //MessageBox.Show(cbCoSo.DataSource.ToString());
+            //this.getSubcribersTableAdapter.Fill(this.dS_DSPM.getSubcribers);
+            //Program.serverName = cbCoSo.SelectedValue.ToString();
+
+
+            if (Ketnoi_CSDLGOC() == 0) return;
+            DataTable dt = new DataTable();
+            dt = Program.execSqlDataTable("SELECT * FROM GETSUBCRIBERS");
+            Program.bdsDSPM.DataSource = dt;
+            cbCoSo.DataSource = dt;
+            cbCoSo.DisplayMember = "TEN_COSO";
+            cbCoSo.ValueMember = "TEN_SERVER";
+            cbCoSo.SelectedIndex = 1;
+            cbCoSo.SelectedIndex = 0;
         }
 
-        private void cbTenCoSo_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
-           if(cbCoSo.SelectedValue != null)
+            if (cbCoSo.SelectedValue != null)
             {
                 Program.serverName = cbCoSo.SelectedValue.ToString();
             }
@@ -55,7 +79,6 @@ namespace TN_CSDLPT
                     Program.mLogin = txtLogin.Text;
                     Program.password = txtPassword.Text;
                     if (Program.ketNoi() == 0) return;
-                    Program.bdsDSPM = bdsDSPM;
                     Program.mCoSo = cbCoSo.SelectedIndex;
                     Program.mLoginDN = Program.mLogin;
                     Program.passwordDN = Program.password;
@@ -90,7 +113,6 @@ namespace TN_CSDLPT
                     Program.mLogin = "SV";
                     Program.password = "147258369";
                     if (Program.ketNoi() == 0) return;
-                    Program.bdsDSPM = bdsDSPM;
                     Program.mCoSo = cbCoSo.SelectedIndex;
                     Program.mLoginDN = Program.mLogin;
                     Program.passwordDN = Program.password;

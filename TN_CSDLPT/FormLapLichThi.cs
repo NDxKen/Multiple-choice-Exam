@@ -68,8 +68,8 @@ namespace TN_CSDLPT
         private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbCoSo.SelectedValue == null) return;
-            if (cbCoSo.SelectedValue.ToString() == "System.Data.DataRowView") return ;
-            if(cbCoSo.SelectedIndex != Program.mCoSo)
+            if (cbCoSo.SelectedValue.ToString() == "System.Data.DataRowView") return;
+            if (cbCoSo.SelectedIndex != Program.mCoSo)
             {
                 Program.mLogin = Program.remoteLogin;
                 Program.password = Program.remotePassword;

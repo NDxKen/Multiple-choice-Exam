@@ -821,7 +821,7 @@ namespace TN_CSDLPT
             this.pcInfo.Size = new System.Drawing.Size(1333, 350);
             this.pcInfo.TabIndex = 17;
             // 
-            // FormDKThi
+            // FormLapLichThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -834,7 +834,7 @@ namespace TN_CSDLPT
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControl2);
-            this.Name = "FormDKThi";
+            this.Name = "FormLapLichThi";
             this.Text = "FormDKThi";
             this.Load += new System.EventHandler(this.FormLapLichThi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

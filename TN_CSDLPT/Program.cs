@@ -16,6 +16,7 @@ namespace TN_CSDLPT
         /// </summary>
         public static SqlConnection conn = new SqlConnection();
         public static String connStr = "";
+        public static String connstr_publisher = "Data Source=LAPTOP-1T0MKR0F;Initial Catalog=TN_CSDLPT;Integrated Security=true";
         public static SqlDataReader myReader;
 
         public static String serverName = "";

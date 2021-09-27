@@ -27,17 +27,7 @@ namespace TN_CSDLPT
             return null;
         }
 
-        private void btnKhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Form frm = this.checkExists(typeof(FormKhoa));
-            if (frm != null) frm.Activate();
-            else
-            {
-                FormKhoa f = new FormKhoa();
-                f.MdiParent = this;
-                f.Show();
-            }
-        }
+   
 
         private void btnGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

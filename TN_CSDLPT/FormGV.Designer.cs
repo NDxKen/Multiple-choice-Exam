@@ -517,6 +517,7 @@ namespace TN_CSDLPT
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.BANGDIEMTableAdapter = null;
+            this.tableAdapterManager.BODETableAdapter = null;
             this.tableAdapterManager.COSOTableAdapter = null;
             this.tableAdapterManager.CT_BAITHITableAdapter = null;
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = this.gIAOVIEN_DANGKYTableAdapter;
