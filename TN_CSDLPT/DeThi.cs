@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TN_CSDLPT
 {
-    class CauHoi
+    class DeThi
     {
-        private String idCauHoi;
+        private String cauHoi;
         private String maMH;
         private String trinhDo;
         private String noiDung;
@@ -20,9 +20,13 @@ namespace TN_CSDLPT
         private String daChon;
         private String maGV;
 
-        public CauHoi(string idCauHoi, string maMH, string trinhDo, string noiDung, string a, string b, string c, string d, string dapAn, string daChon, string maGV)
+        public DeThi()
         {
-            this.idCauHoi = idCauHoi;
+        }
+
+        public DeThi(string cauHoi, string maMH, string trinhDo, string noiDung, string a, string b, string c, string d, string dapAn, string daChon, string maGV)
+        {
+            this.cauHoi = cauHoi;
             this.maMH = maMH;
             this.trinhDo = trinhDo;
             this.noiDung = noiDung;
@@ -35,7 +39,7 @@ namespace TN_CSDLPT
             this.maGV = maGV;
         }
 
-        public string IdCauHoi { get => idCauHoi; set => idCauHoi = value; }
+        public string CauHoi { get => cauHoi; set => cauHoi = value; }
         public string MaMH { get => maMH; set => maMH = value; }
         public string TrinhDo { get => trinhDo; set => trinhDo = value; }
         public string NoiDung { get => noiDung; set => noiDung = value; }

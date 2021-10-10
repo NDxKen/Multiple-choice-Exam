@@ -43,5 +43,10 @@ namespace TN_CSDLPT
                 f.Show();
             }
         }
+
+        private void btnDangXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

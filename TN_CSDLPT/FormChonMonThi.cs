@@ -49,20 +49,21 @@ namespace TN_CSDLPT
 
         private void btnThi_Click(object sender, EventArgs e)
         {
-            //Form frm = checkExists(typeof(FormThi));
-            //if (frm != null) frm.Activate();
-            //else
-            //{
-            //    Form f = new FormThi();
-            //    f = this.MdiParent;
-            //    f.Show();
-            //}
+
+            FormThi.maMH = ((DataRowView)bdsGVDK[bdsGVDK.Position])["MAMH"].ToString();
+            FormThi.maLop = ((DataRowView)bdsGVDK[bdsGVDK.Position])["MALOP"].ToString();
+            FormThi.trinhDo = gvGVDK.GetRowCellValue(gvGVDK.FocusedRowHandle, "TRINHDO").ToString();
+            FormThi.ngayThi = ((DataRowView)bdsGVDK[bdsGVDK.Position])["NGAYTHI"].ToString();
+            FormThi.lan = ((DataRowView)bdsGVDK[bdsGVDK.Position])["LAN"].ToString();
+            FormThi.soCauThi = Int32.Parse(gvGVDK.GetRowCellValue(gvGVDK.FocusedRowHandle, "SOCAUTHI").ToString());
+            FormThi.thoiGian = Int32.Parse(((DataRowView)bdsGVDK[bdsGVDK.Position])["THOIGIAN"].ToString());
 
             Form frm = new FormThi();
             frm.Activate();
             frm.Show();
             Program.formMainStudent.Visible = false;
 
+            
         }
     }
 }

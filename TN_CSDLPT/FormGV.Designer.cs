@@ -36,6 +36,7 @@ namespace TN_CSDLPT
             System.Windows.Forms.Label hOCVILabel;
             System.Windows.Forms.Label mAKHLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGV));
+            System.Windows.Forms.Label mAGVLabel1;
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -92,14 +93,16 @@ namespace TN_CSDLPT
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
             this.txtMaGV = new DevExpress.XtraEditors.TextEdit();
-            this.bdsGVDK = new System.Windows.Forms.BindingSource(this.components);
             this.bdsBoDe = new System.Windows.Forms.BindingSource(this.components);
             this.bODETableAdapter = new TN_CSDLPT.DSTableAdapters.BODETableAdapter();
+            this.bdsGVDK = new System.Windows.Forms.BindingSource(this.components);
+            this.mAGVTextEdit = new DevExpress.XtraEditors.TextEdit();
             mAGVLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             tENLabel = new System.Windows.Forms.Label();
             hOCVILabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
+            mAGVLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
@@ -119,8 +122,9 @@ namespace TN_CSDLPT
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGVDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGVDK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mAGVTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // mAGVLabel
@@ -627,6 +631,8 @@ namespace TN_CSDLPT
             // 
             // pcBottom
             // 
+            this.pcBottom.Controls.Add(mAGVLabel1);
+            this.pcBottom.Controls.Add(this.mAGVTextEdit);
             this.pcBottom.Controls.Add(mAKHLabel);
             this.pcBottom.Controls.Add(this.txtMaKhoa);
             this.pcBottom.Controls.Add(hOCVILabel);
@@ -688,11 +694,6 @@ namespace TN_CSDLPT
             this.txtMaGV.Size = new System.Drawing.Size(206, 22);
             this.txtMaGV.TabIndex = 1;
             // 
-            // bdsGVDK
-            // 
-            this.bdsGVDK.DataMember = "GIAOVIEN_DANGKY";
-            this.bdsGVDK.DataSource = this.DS;
-            // 
             // bdsBoDe
             // 
             this.bdsBoDe.DataMember = "FK_BODE_GIAOVIEN";
@@ -701,6 +702,29 @@ namespace TN_CSDLPT
             // bODETableAdapter
             // 
             this.bODETableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsGVDK
+            // 
+            this.bdsGVDK.DataMember = "FK_GIAOVIEN_DANGKY_GIAOVIEN1";
+            this.bdsGVDK.DataSource = this.bdsGV;
+            // 
+            // mAGVLabel1
+            // 
+            mAGVLabel1.AutoSize = true;
+            mAGVLabel1.Location = new System.Drawing.Point(760, 107);
+            mAGVLabel1.Name = "mAGVLabel1";
+            mAGVLabel1.Size = new System.Drawing.Size(48, 17);
+            mAGVLabel1.TabIndex = 10;
+            mAGVLabel1.Text = "MAGV:";
+            // 
+            // mAGVTextEdit
+            // 
+            this.mAGVTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsGVDK, "MAGV", true));
+            this.mAGVTextEdit.Location = new System.Drawing.Point(814, 104);
+            this.mAGVTextEdit.MenuManager = this.barManager1;
+            this.mAGVTextEdit.Name = "mAGVTextEdit";
+            this.mAGVTextEdit.Size = new System.Drawing.Size(125, 22);
+            this.mAGVTextEdit.TabIndex = 11;
             // 
             // FormGV
             // 
@@ -740,8 +764,9 @@ namespace TN_CSDLPT
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGVDK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGVDK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mAGVTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -805,8 +830,9 @@ namespace TN_CSDLPT
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtMaGV;
-        private System.Windows.Forms.BindingSource bdsGVDK;
         private System.Windows.Forms.BindingSource bdsBoDe;
         private DSTableAdapters.BODETableAdapter bODETableAdapter;
+        private DevExpress.XtraEditors.TextEdit mAGVTextEdit;
+        private System.Windows.Forms.BindingSource bdsGVDK;
     }
 }

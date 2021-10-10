@@ -48,7 +48,7 @@ namespace TN_CSDLPT
             cbCoSo.ValueMember = "TEN_SERVER";
             cbCoSo.SelectedIndex = Program.mCoSo;
 
-            dt = Program.execSqlDataTable("select MAKH, TENKH from KHOA");
+            dt = Program.execSqlDataTable("EXEC SELECTKHOA");
             cbKhoa.ValueMember = "MAKH";
             cbKhoa.DataSource = dt;
             cbKhoa.DisplayMember = "TENKH";
@@ -104,7 +104,7 @@ namespace TN_CSDLPT
                 this.bODETableAdapter.Fill(this.DS.BODE);
 
 
-                dt = Program.execSqlDataTable("select MAKH, TENKH from KHOA");
+                dt = Program.execSqlDataTable("EXEC SELECTKHOA");
                 cbKhoa.DataSource = dt;
                 cbKhoa.DisplayMember = "TENKH";
                 cbKhoa.ValueMember = "MAKH";

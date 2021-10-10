@@ -32,6 +32,7 @@ namespace TN_CSDLPT
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainStudent));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.btnThi = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -41,7 +42,10 @@ namespace TN_CSDLPT
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
             this.TENLOP = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnThi = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -53,19 +57,30 @@ namespace TN_CSDLPT
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.ribbon.SearchEditItem,
-            this.btnThi});
+            this.btnThi,
+            this.btnDangXuat});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 2;
+            this.ribbon.MaxItemId = 3;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.Size = new System.Drawing.Size(922, 193);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
+            // btnThi
+            // 
+            this.btnThi.Caption = "THI";
+            this.btnThi.Id = 1;
+            this.btnThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThi.ImageOptions.Image")));
+            this.btnThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThi.ImageOptions.LargeImage")));
+            this.btnThi.Name = "btnThi";
+            this.btnThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThi_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "ribbonPage1";
             // 
@@ -124,14 +139,36 @@ namespace TN_CSDLPT
             this.TENLOP.Size = new System.Drawing.Size(58, 20);
             this.TENLOP.Text = "Tên lớp";
             // 
-            // btnThi
+            // ribbonPageGroup2
             // 
-            this.btnThi.Caption = "THI";
-            this.btnThi.Id = 1;
-            this.btnThi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnThi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnThi.Name = "btnThi";
-            this.btnThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThi_ItemClick);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnDangXuat);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Caption = "Đăng xuất";
+            this.btnLogout.Id = 4;
+            this.btnLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.Image")));
+            this.btnLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.LargeImage")));
+            this.btnLogout.Name = "btnLogout";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Đăng xuất";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.Caption = "ĐĂNG XUẤT";
+            this.btnDangXuat.Id = 2;
+            this.btnDangXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bnLogout.ImageOptions.Image")));
+            this.btnDangXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bnLogout.ImageOptions.LargeImage")));
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDangXuat_ItemClick);
             // 
             // FormMainStudent
             // 
@@ -169,5 +206,9 @@ namespace TN_CSDLPT
         public System.Windows.Forms.ToolStripStatusLabel NHOM;
         public System.Windows.Forms.ToolStripStatusLabel TENLOP;
         private DevExpress.XtraBars.BarButtonItem btnThi;
+        private DevExpress.XtraBars.BarButtonItem btnDangXuat;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem btnLogout;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
