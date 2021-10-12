@@ -76,5 +76,19 @@ namespace TN_CSDLPT
                 f.Show();
             }
         }
+
+        private void btnXemKetQua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = checkExists(typeof(FormXemKetQua));
+            if(frm != null)
+            {
+                frm.Show();
+            } else
+            {
+                Form f = new FormXemKetQua();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

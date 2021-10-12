@@ -47,6 +47,7 @@ namespace TN_CSDLPT
             this.MAGV = new System.Windows.Forms.ToolStripStatusLabel();
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnXemKetQua = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -61,10 +62,11 @@ namespace TN_CSDLPT
             this.btnKhoa,
             this.btnGV,
             this.btnLogout,
-            this.btnLapLichThi});
+            this.btnLapLichThi,
+            this.btnXemKetQua});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 7;
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ribbonControl1.MaxItemId = 8;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -110,7 +112,7 @@ namespace TN_CSDLPT
             this.ribbonPageGroup5,
             this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Danh mục";
+            this.ribbonPage1.Text = "DANH MỤC";
             // 
             // ribbonPageGroup3
             // 
@@ -135,10 +137,11 @@ namespace TN_CSDLPT
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2});
             this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "Báo cáo";
+            this.ribbonPage2.Text = "BÁO CÁO";
             // 
             // ribbonPageGroup2
             // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnXemKetQua);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
@@ -176,6 +179,15 @@ namespace TN_CSDLPT
             this.NHOM.Name = "NHOM";
             this.NHOM.Size = new System.Drawing.Size(50, 20);
             this.NHOM.Text = "Nhóm";
+            // 
+            // btnXemKetQua
+            // 
+            this.btnXemKetQua.Caption = "XEM KẾT QUẢ";
+            this.btnXemKetQua.Id = 7;
+            this.btnXemKetQua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXemKetQua.ImageOptions.Image")));
+            this.btnXemKetQua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXemKetQua.ImageOptions.LargeImage")));
+            this.btnXemKetQua.Name = "btnXemKetQua";
+            this.btnXemKetQua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXemKetQua_ItemClick);
             // 
             // FormMain
             // 
@@ -218,6 +230,7 @@ namespace TN_CSDLPT
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.BarButtonItem btnLapLichThi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem btnXemKetQua;
     }
 }
 

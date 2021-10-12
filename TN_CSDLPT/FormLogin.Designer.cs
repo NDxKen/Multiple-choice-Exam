@@ -42,7 +42,8 @@ namespace TN_CSDLPT
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(61, 22);
+            this.labelControl1.Location = new System.Drawing.Point(95, 35);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(35, 17);
             this.labelControl1.TabIndex = 0;
@@ -50,7 +51,8 @@ namespace TN_CSDLPT
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(61, 77);
+            this.labelControl2.Location = new System.Drawing.Point(95, 83);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(59, 17);
             this.labelControl2.TabIndex = 1;
@@ -58,7 +60,8 @@ namespace TN_CSDLPT
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(61, 127);
+            this.labelControl3.Location = new System.Drawing.Point(95, 133);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(56, 17);
             this.labelControl3.TabIndex = 2;
@@ -70,7 +73,7 @@ namespace TN_CSDLPT
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(306, 23);
             this.txtLogin.TabIndex = 4;
-            this.txtLogin.Text = "001";
+            this.txtLogin.Text = "phanvanhai";
             // 
             // txtPassword
             // 
@@ -78,7 +81,7 @@ namespace TN_CSDLPT
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(306, 23);
             this.txtPassword.TabIndex = 5;
-            this.txtPassword.Text = "123";
+            this.txtPassword.Text = "147258369";
             // 
             // rdbGV
             // 
@@ -105,15 +108,17 @@ namespace TN_CSDLPT
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(180, 244);
+            this.btnLogin.Location = new System.Drawing.Point(180, 252);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(205, 42);
+            this.btnLogin.Size = new System.Drawing.Size(200, 45);
             this.btnLogin.TabIndex = 8;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // cbCoSo
             // 
+            this.cbCoSo.DisplayMember = "TEN_SERVER";
             this.cbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCoSo.FormattingEnabled = true;
             this.cbCoSo.Location = new System.Drawing.Point(180, 26);
@@ -127,7 +132,7 @@ namespace TN_CSDLPT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 314);
+            this.ClientSize = new System.Drawing.Size(591, 339);
             this.Controls.Add(this.cbCoSo);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.rdbSV);
