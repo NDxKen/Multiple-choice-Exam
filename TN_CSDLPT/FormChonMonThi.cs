@@ -32,7 +32,9 @@ namespace TN_CSDLPT
             DS.EnforceConstraints = false;
             this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
             this.gIAOVIEN_DANGKYTableAdapter.Fill(this.DS.GIAOVIEN_DANGKY);
-
+            //bdsGVDK.Filter = "NGAYTHI = '" + DateTime.Now.ToShortDateString() + "'";
+            MessageBox.Show(DateTime.Now.ToShortDateString());
+            MessageBox.Show(((DataRowView)bdsGVDK[0])["NGAYTHI"].ToString());
         }
 
         private Form checkExists(Type ftype)
@@ -49,7 +51,7 @@ namespace TN_CSDLPT
 
         private void btnThi_Click(object sender, EventArgs e)
         {
-
+            if (bdsGVDK.Count == 0) return;
             FormThi.maMH = ((DataRowView)bdsGVDK[bdsGVDK.Position])["MAMH"].ToString();
             FormThi.maLop = ((DataRowView)bdsGVDK[bdsGVDK.Position])["MALOP"].ToString();
             FormThi.trinhDo = gvGVDK.GetRowCellValue(gvGVDK.FocusedRowHandle, "TRINHDO").ToString();
@@ -57,13 +59,12 @@ namespace TN_CSDLPT
             FormThi.lan = ((DataRowView)bdsGVDK[bdsGVDK.Position])["LAN"].ToString();
             FormThi.soCauThi = Int32.Parse(gvGVDK.GetRowCellValue(gvGVDK.FocusedRowHandle, "SOCAUTHI").ToString());
             FormThi.thoiGian = Int32.Parse(((DataRowView)bdsGVDK[bdsGVDK.Position])["THOIGIAN"].ToString());
-
+            String strCHECKDATHI = "EXEC SP_CHECKDATHI '" + Program.userName + "','" + FormThi.maMH + "','" + FormThi.lan + "'";
+            if (Program.execNonQuery(strCHECKDATHI) != 0) return;
             Form frm = new FormThi();
             frm.Activate();
             frm.Show();
             Program.formMainStudent.Visible = false;
-
-            
         }
     }
 }

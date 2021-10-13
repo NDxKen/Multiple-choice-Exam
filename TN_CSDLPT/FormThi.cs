@@ -19,12 +19,12 @@ namespace TN_CSDLPT
         public static String trinhDo = "";
         public static String ngayThi = "";
         public static String lan = "";
-        public static int soCauThi;       
+        public static int soCauThi = 0;       
         public static int thoiGian = 0;
 
 
-        private static int second;
-        private static int minute;
+        private static int second = 0;
+        private static int minute = 0;
         private static double diemMoiCau = 0;
         private static double diemThi = 0;
 
@@ -75,12 +75,9 @@ namespace TN_CSDLPT
             d.C = ((DataRowView)bdsDeThi[position])["C"].ToString();
             d.D = ((DataRowView)bdsDeThi[position])["D"].ToString();
             d.CauHoi = ((DataRowView)bdsDeThi[position])["CAUHOI"].ToString();
-            d.MaMH = ((DataRowView)bdsDeThi[position])["MAMH"].ToString();
-            d.TrinhDo = ((DataRowView)bdsDeThi[position])["TRINHDO"].ToString();
             d.NoiDung = ((DataRowView)bdsDeThi[position])["NOIDUNG"].ToString();
             d.DapAn = ((DataRowView)bdsDeThi[position])["DAP_AN"].ToString();
             d.DaChon = "X";
-            d.MaGV = ((DataRowView)bdsDeThi[position])["MAGV"].ToString();
             return d;
         }
 

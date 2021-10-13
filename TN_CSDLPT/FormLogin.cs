@@ -83,7 +83,7 @@ namespace TN_CSDLPT
                     Program.mLoginDN = Program.mLogin;
                     Program.passwordDN = Program.password;
 
-                    String str = "exec SP_GetLoginInfomation '" + Program.mLogin + "'"; //SP Lấy thông tin đăng nhập
+                    String str = "exec SP_GETLOGININFORMATION '" + Program.mLogin + "'"; //SP Lấy thông tin đăng nhập
                     Program.myReader = Program.execSqlDataReader(str);
                     if (Program.myReader == null) return;
                     Program.myReader.Read();
@@ -117,7 +117,7 @@ namespace TN_CSDLPT
                     Program.mLoginDN = Program.mLogin;
                     Program.passwordDN = Program.password;
 
-                    String str = "exec SP_GetLoginInfomation '" + Program.mLogin + "'";
+                    String str = "exec SP_GETLOGININFORMATION '" + Program.mLogin + "'";
                     Program.myReader = Program.execSqlDataReader(str);
                     if (Program.myReader == null) return;
                     Program.myReader.Read();                   
@@ -125,13 +125,13 @@ namespace TN_CSDLPT
                     Program.myReader.Close();
 
                     //check tài khoản user,pass
-                    String strCheckAccount = "exec SP_CheckAccountStudent '" + txtLogin.Text.Trim() + "','" + txtPassword.Text.Trim() + "'";
+                    String strCheckAccount = "exec SP_CHECKTAIKHOANSINHVIEN '" + txtLogin.Text.Trim() + "','" + txtPassword.Text.Trim() + "'";
                     if(Program.execNonQuery(strCheckAccount) == 1)
                     {
                         return;
                     }
 
-                    String strTimSV = "exec SP_FindStudent '" + txtLogin.Text.Trim() + "'"; //SP Tìm SV dựa vào mã
+                    String strTimSV = "exec SP_GETTHONGTINSINHVIEN '" + txtLogin.Text.Trim() + "'"; //SP GET thông tin SV dựa vào mã
                     Program.myReader = Program.execSqlDataReader(strTimSV);
                     if (Program.myReader == null) return;
                     Program.myReader.Read();

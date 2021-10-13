@@ -48,7 +48,7 @@ namespace TN_CSDLPT
             cbCoSo.ValueMember = "TEN_SERVER";
             cbCoSo.SelectedIndex = Program.mCoSo;
 
-            dt = Program.execSqlDataTable("EXEC SELECTKHOA");
+            dt = Program.execSqlDataTable("EXEC SP_GETKHOA");
             cbKhoa.ValueMember = "MAKH";
             cbKhoa.DataSource = dt;
             cbKhoa.DisplayMember = "TENKH";
@@ -104,7 +104,7 @@ namespace TN_CSDLPT
                 this.bODETableAdapter.Fill(this.DS.BODE);
 
 
-                dt = Program.execSqlDataTable("EXEC SELECTKHOA");
+                dt = Program.execSqlDataTable("EXEC SP_GETKHOA");
                 cbKhoa.DataSource = dt;
                 cbKhoa.DisplayMember = "TENKH";
                 cbKhoa.ValueMember = "MAKH";
@@ -231,7 +231,7 @@ namespace TN_CSDLPT
 
             if (isAdding)
             {
-                String strCheckTrungMaGV = "exec SP_CheckTrungMaGV '" + txtMaGV.Text.Trim() + "'";
+                String strCheckTrungMaGV = "exec SP_CHECKTRUNGMAGV '" + txtMaGV.Text.Trim() + "'";
                 if (Program.execNonQuery(strCheckTrungMaGV) == 1)
                 {
                     txtMaGV.Focus();

@@ -82,7 +82,7 @@ namespace TN_CSDLPT
             Form frm = checkExists(typeof(FormXemKetQua));
             if(frm != null)
             {
-                frm.Show();
+                frm.Activate();
             } else
             {
                 Form f = new FormXemKetQua();

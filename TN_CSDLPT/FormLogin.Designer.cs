@@ -43,7 +43,7 @@ namespace TN_CSDLPT
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(95, 35);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(35, 17);
             this.labelControl1.TabIndex = 0;
@@ -52,7 +52,7 @@ namespace TN_CSDLPT
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(95, 83);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(59, 17);
             this.labelControl2.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace TN_CSDLPT
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(95, 133);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(56, 17);
             this.labelControl3.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace TN_CSDLPT
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(306, 23);
             this.txtLogin.TabIndex = 4;
-            this.txtLogin.Text = "phanvanhai";
+            this.txtLogin.Text = "001";
             // 
             // txtPassword
             // 
@@ -81,7 +81,7 @@ namespace TN_CSDLPT
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(306, 23);
             this.txtPassword.TabIndex = 5;
-            this.txtPassword.Text = "147258369";
+            this.txtPassword.Text = "123";
             // 
             // rdbGV
             // 
@@ -109,7 +109,7 @@ namespace TN_CSDLPT
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(180, 252);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(5);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(200, 45);
             this.btnLogin.TabIndex = 8;

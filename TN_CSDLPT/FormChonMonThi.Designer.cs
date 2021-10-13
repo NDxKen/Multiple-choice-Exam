@@ -137,7 +137,12 @@ namespace TN_CSDLPT
             // 
             // colNGAYTHI
             // 
+            this.colNGAYTHI.Caption = "Ngày thi";
+            this.colNGAYTHI.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYTHI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYTHI.FieldName = "NGAYTHI";
+            this.colNGAYTHI.GroupFormat.FormatString = "dd/MM/yyyy";
+            this.colNGAYTHI.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYTHI.MinWidth = 25;
             this.colNGAYTHI.Name = "colNGAYTHI";
             this.colNGAYTHI.Visible = true;

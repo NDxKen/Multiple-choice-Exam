@@ -15,8 +15,6 @@ namespace TN_CSDLPT
     {
         private Boolean isAdding = false;
         private Boolean isEditing = false;
-        private String maMH = "";
-        private String maLop = "";
         public FormLapLichThi()
         {
             InitializeComponent();
@@ -55,14 +53,14 @@ namespace TN_CSDLPT
             pcInfo.Visible = false;
             txtMaGV.ReadOnly = txtMaLop.ReadOnly = txtMaMH.ReadOnly = true;
 
-            //if(Program.mNhom == "COSO")
-            //{
-            //    cbCoSo.Enabled = false;
-            //}
-            //else if(Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
-            //{
-            //    btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
-            //}
+            if (Program.mNhom == "COSO")
+            {
+                cbCoSo.Enabled = false;
+            }
+            else if (Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
+            {
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
+            }
         }
 
         private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,6 +186,7 @@ namespace TN_CSDLPT
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            txtMaGV.Focus();// fix trường hợp spin dư dấu chấm => bug
             if (txtMaMH.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn vui lòng chọn mã môn học", "Thông báo", MessageBoxButtons.OK);
@@ -200,13 +199,15 @@ namespace TN_CSDLPT
             }
             if (isAdding)
             {
+                // kiểm tra ngày tháng đk, lịch thi tồn tại, đk l2 kt l1 thi chưa, time l2 > l1
                 String strCHECKLAPLICHTHI = "EXEC SP_CHECKLAPLICHTHI '" + txtMaMH.Text + "', '" + txtMaLop.Text + "', '" + cbLanThi.SelectedItem.ToString() + "' , '" + dateNgayThi.Text + "'";
-                if (Program.execNonQuery(strCHECKLAPLICHTHI) == 1) return;
+                if (Program.execNonQuery(strCHECKLAPLICHTHI) != 0) return;
+                //thiếu SP check đủ câu hỏi chưa
+                String strCHECKDUCAUHOITHI = "EXEC SP_CHECKDUCAUHOITHI '" + txtMaMH.Text +"','" + cbTrinhDo.Text + "','" + spinSoCauThi.Text + "'";
+                if (Program.execNonQuery(strCHECKDUCAUHOITHI) != 0) return;
+                
                 try
                 {
-                    //thiếu SP check đủ câu hỏi chưa
-
-
                     bdsGVDK.EndEdit();
                     gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
                     gIAOVIEN_DANGKYTableAdapter.Update(DS.GIAOVIEN_DANGKY);

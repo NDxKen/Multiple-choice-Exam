@@ -14,19 +14,11 @@ namespace TN_CSDLPT
 {
     public partial class FormXemKetQua : DevExpress.XtraEditors.XtraForm
     {
-        private String maLop = "", maSV = "", maMH = "";
+        private String maSV = "", maMH = "";
         private int lanThi = 0;
         public FormXemKetQua()
         {
             InitializeComponent();
-        }
-
-        private void lOPBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bdsLop.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.DS);
-
         }
 
         private void FrptXemKetQua_Load(object sender, EventArgs e)
@@ -38,14 +30,42 @@ namespace TN_CSDLPT
             // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connStr;
             this.SINHVIENTableAdapter.Fill(this.DS.SINHVIEN);
-            // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
-            this.LOPTableAdapter.Connection.ConnectionString = Program.connStr;
-            this.LOPTableAdapter.Fill(this.DS.LOP);
 
             gcLop.Hide();
             gcSinhVien.Hide();
             gcMonHoc.Hide();
             cbLanThi.SelectedIndex = 0;
+
+            cbCoSo.DataSource = Program.bdsDSPM;
+            cbCoSo.DisplayMember = "TEN_COSO";
+            cbCoSo.ValueMember = "TEN_SERVER";
+            cbCoSo.SelectedIndex = 0;
+
+            if (Program.mNhom == "COSO")
+                cbCoSo.Enabled = false;
+        }
+
+        private void cbCoSo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCoSo.SelectedValue.ToString() == "System.Data.DataRowView") return;
+            if(cbCoSo.SelectedIndex != Program.mCoSo)
+            {
+                Program.mLogin = Program.remoteLogin;
+                Program.password = Program.remotePassword;
+            } else
+            {
+                Program.mLogin = Program.mLoginDN;
+                Program.password = Program.passwordDN;
+            }
+            Program.serverName = cbCoSo.SelectedValue.ToString();
+            if (Program.ketNoi() == 0) return;
+            DS.EnforceConstraints = false;
+            // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
+            this.MONHOCTableAdapter.Connection.ConnectionString = Program.connStr;
+            this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
+            // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
+            this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connStr;
+            this.SINHVIENTableAdapter.Fill(this.DS.SINHVIEN);
         }
 
         private void btnLop_Click(object sender, EventArgs e)
@@ -54,21 +74,14 @@ namespace TN_CSDLPT
             gcSinhVien.Hide();
             gcMonHoc.Hide();
             gcLop.Dock = DockStyle.Fill;
-            maLop = gvLop.GetRowCellValue(gvLop.FocusedRowHandle, "MALOP").ToString();
         }
 
         private void btnHoTen_Click(object sender, EventArgs e)
         {
-            if(maLop.CompareTo("") == 0)
-            {
-                MessageBox.Show("Bạn chưa chọn lớp", "Thống báo", MessageBoxButtons.OK);
-                return;
-            }
             gcLop.Hide();
             gcSinhVien.Show();
             gcMonHoc.Hide();
             gcSinhVien.Dock = DockStyle.Fill;
-            bdsSinhVien.Filter = "MALOP = '" + maLop + "'";
         }
 
         private void btnMonThi_Click(object sender, EventArgs e)
@@ -81,31 +94,37 @@ namespace TN_CSDLPT
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            maLop = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString();
-            maSV = ((DataRowView)bdsSinhVien[bdsLop.Position])["MASV"].ToString();
-            maMH = ((DataRowView)bdsMonHoc[bdsLop.Position])["MAMH"].ToString();
+            if (txtHoTen.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên", "thông báo", MessageBoxButtons.OK);
+                return;
+            } else if (txtMonThi.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn môn thi", "thông báo", MessageBoxButtons.OK);
+                return;
+            }
+            maSV = ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString();
+            maMH = ((DataRowView)bdsMonHoc[bdsMonHoc.Position])["MAMH"].ToString();
             lanThi = Int32.Parse(cbLanThi.SelectedItem.ToString());
-
             if (Program.execNonQuery("EXEC SP_CHECKXEMKETQUANULL '" + maSV + "','" + maMH + "','" + lanThi + "'") == 1) return;
 
             rpt_XemKetQua rpt = new rpt_XemKetQua(maSV, maMH, lanThi);
-            rpt.lbLop.Text = txtLop.Text;
             rpt.lbHoTen.Text= txtHoTen.Text;
             rpt.lbMonThi.Text = txtMonThi.Text;
             rpt.lbLanThi.Text = lanThi.ToString();
-            String strNgayThi = "EXEC SP_LAYNGAYTHI '" + maSV + "','" + maMH + "','" + lanThi + "'";
+            String strNgayThi = "EXEC SP_GETNGAYTHI '" + maSV + "','" + maMH + "','" + lanThi + "'";
             Program.myReader = Program.execSqlDataReader(strNgayThi);
             Program.myReader.Read();
             rpt.lbNgayThi.Text = Program.myReader.GetString(0).ToString();
             Program.myReader.Close();
+            String strGETLOPFROMSINHVIEN = "EXEC SP_GETLOPFROMSINHVIEN '" + maSV + "'";
+            Program.myReader = Program.execSqlDataReader(strGETLOPFROMSINHVIEN);
+            Program.myReader.Read();
+            rpt.lbLop.Text = Program.myReader.GetString(0).ToString().Trim();
+            Program.myReader.Close();
 
             ReportPrintTool print = new ReportPrintTool(rpt);
             print.ShowPreviewDialog();
-        }
-
-        private void gcLop_Click(object sender, EventArgs e)
-        {
-            txtLop.Text = gvLop.GetRowCellValue(gvLop.FocusedRowHandle, "TENLOP").ToString();
         }
 
         private void gcSinhVien_Click(object sender, EventArgs e)

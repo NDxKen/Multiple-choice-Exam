@@ -9,8 +9,6 @@ namespace TN_CSDLPT
     class DeThi
     {
         private String cauHoi;
-        private String maMH;
-        private String trinhDo;
         private String noiDung;
         private String a;
         private String b;
@@ -18,30 +16,24 @@ namespace TN_CSDLPT
         private String d;
         private String dapAn;
         private String daChon;
-        private String maGV;
 
         public DeThi()
         {
         }
 
-        public DeThi(string cauHoi, string maMH, string trinhDo, string noiDung, string a, string b, string c, string d, string dapAn, string daChon, string maGV)
+        public DeThi(string cauHoi, string noiDung, string a, string b, string c, string d, string dapAn, string daChon)
         {
             this.cauHoi = cauHoi;
-            this.maMH = maMH;
-            this.trinhDo = trinhDo;
             this.noiDung = noiDung;
             this.a = a;
             this.b = b;
             this.c = c;
             this.d = d;
             this.dapAn = dapAn;
-            this.daChon = daChon;
-            this.maGV = maGV;
+            this.DaChon = daChon;
         }
 
         public string CauHoi { get => cauHoi; set => cauHoi = value; }
-        public string MaMH { get => maMH; set => maMH = value; }
-        public string TrinhDo { get => trinhDo; set => trinhDo = value; }
         public string NoiDung { get => noiDung; set => noiDung = value; }
         public string A { get => a; set => a = value; }
         public string B { get => b; set => b = value; }
@@ -49,6 +41,5 @@ namespace TN_CSDLPT
         public string D { get => d; set => d = value; }
         public string DapAn { get => dapAn; set => dapAn = value; }
         public string DaChon { get => daChon; set => daChon = value; }
-        public string MaGV { get => maGV; set => maGV = value; }
     }
 }
