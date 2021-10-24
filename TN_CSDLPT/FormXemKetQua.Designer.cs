@@ -83,56 +83,66 @@ namespace TN_CSDLPT
             // 
             // labelControl1
             // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(158, 35);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(5);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(35, 17);
+            this.labelControl1.Size = new System.Drawing.Size(41, 21);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Cơ sở";
             // 
             // labelControl2
             // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(158, 90);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(41, 17);
+            this.labelControl2.Size = new System.Drawing.Size(49, 21);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Họ tên";
             // 
             // labelControl3
             // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(157, 144);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(8);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(42, 16);
+            this.labelControl3.Size = new System.Drawing.Size(55, 21);
             this.labelControl3.TabIndex = 2;
             this.labelControl3.Text = "Môn thi";
             // 
             // labelControl4
             // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(158, 197);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(10);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(41, 17);
+            this.labelControl4.Size = new System.Drawing.Size(50, 21);
             this.labelControl4.TabIndex = 3;
             this.labelControl4.Text = "Lần thi";
             // 
             // txtHoTen
             // 
+            this.txtHoTen.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHoTen.Location = new System.Drawing.Point(240, 87);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(4);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.ReadOnly = true;
-            this.txtHoTen.Size = new System.Drawing.Size(229, 23);
+            this.txtHoTen.Size = new System.Drawing.Size(229, 28);
             this.txtHoTen.TabIndex = 5;
             // 
             // txtMonThi
             // 
+            this.txtMonThi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonThi.Location = new System.Drawing.Point(240, 143);
             this.txtMonThi.Margin = new System.Windows.Forms.Padding(4);
             this.txtMonThi.Name = "txtMonThi";
             this.txtMonThi.ReadOnly = true;
-            this.txtMonThi.Size = new System.Drawing.Size(229, 23);
+            this.txtMonThi.Size = new System.Drawing.Size(229, 28);
             this.txtMonThi.TabIndex = 6;
             // 
             // btnPreview
@@ -147,6 +157,8 @@ namespace TN_CSDLPT
             // 
             // btnHoTen
             // 
+            this.btnHoTen.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoTen.Appearance.Options.UseFont = true;
             this.btnHoTen.Location = new System.Drawing.Point(508, 80);
             this.btnHoTen.Margin = new System.Windows.Forms.Padding(5);
             this.btnHoTen.Name = "btnHoTen";
@@ -157,6 +169,8 @@ namespace TN_CSDLPT
             // 
             // btnMonThi
             // 
+            this.btnMonThi.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonThi.Appearance.Options.UseFont = true;
             this.btnMonThi.Location = new System.Drawing.Point(508, 136);
             this.btnMonThi.Margin = new System.Windows.Forms.Padding(5);
             this.btnMonThi.Name = "btnMonThi";
@@ -199,23 +213,25 @@ namespace TN_CSDLPT
             // cbCoSo
             // 
             this.cbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCoSo.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCoSo.FormattingEnabled = true;
             this.cbCoSo.Location = new System.Drawing.Point(240, 35);
             this.cbCoSo.Name = "cbCoSo";
-            this.cbCoSo.Size = new System.Drawing.Size(229, 24);
+            this.cbCoSo.Size = new System.Drawing.Size(229, 29);
             this.cbCoSo.TabIndex = 16;
             this.cbCoSo.SelectedIndexChanged += new System.EventHandler(this.cbCoSo_SelectedIndexChanged);
             // 
             // cbLanThi
             // 
             this.cbLanThi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLanThi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLanThi.FormattingEnabled = true;
             this.cbLanThi.Items.AddRange(new object[] {
             "1",
             "2"});
             this.cbLanThi.Location = new System.Drawing.Point(240, 194);
             this.cbLanThi.Name = "cbLanThi";
-            this.cbLanThi.Size = new System.Drawing.Size(107, 24);
+            this.cbLanThi.Size = new System.Drawing.Size(107, 29);
             this.cbLanThi.TabIndex = 15;
             // 
             // panelControl2
@@ -407,6 +423,7 @@ namespace TN_CSDLPT
             this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = null;
             this.tableAdapterManager.GIAOVIENTableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = this.MONHOCTableAdapter;
             this.tableAdapterManager.SINHVIENTableAdapter = this.SINHVIENTableAdapter;
             this.tableAdapterManager.UpdateOrder = TN_CSDLPT.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;

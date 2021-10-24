@@ -90,5 +90,17 @@ namespace TN_CSDLPT
                 f.Show();
             }
         }
+
+        private void btnCreateAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = checkExists(typeof(FormTaoTaiKhoan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Form f = new FormTaoTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

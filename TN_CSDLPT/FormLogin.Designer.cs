@@ -73,7 +73,7 @@ namespace TN_CSDLPT
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(306, 23);
             this.txtLogin.TabIndex = 4;
-            this.txtLogin.Text = "001";
+            this.txtLogin.Text = "phanvanhai";
             // 
             // txtPassword
             // 
@@ -81,7 +81,7 @@ namespace TN_CSDLPT
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(306, 23);
             this.txtPassword.TabIndex = 5;
-            this.txtPassword.Text = "123";
+            this.txtPassword.Text = "147258369";
             // 
             // rdbGV
             // 

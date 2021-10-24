@@ -13,6 +13,7 @@ namespace TN_CSDLPT
 {
     public partial class FormGV : DevExpress.XtraEditors.XtraForm
     {
+        Stack<String> myStack = new Stack<string>();
         private DataTable dt = new DataTable();
         private String maKH = "";
         private Boolean isAdding = false;
@@ -131,7 +132,7 @@ namespace TN_CSDLPT
 
         private void setupButtonLast()
         {
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = gcGV.Enabled = true;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = gcGV.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = false;
             pcBottom.Enabled = false;
         }
@@ -144,7 +145,6 @@ namespace TN_CSDLPT
             txtMaKhoa.Text = maKH;
             txtMaGV.Focus();
 
-            //bug
             cbKhoa.Enabled = false;
         }
 
@@ -155,6 +155,7 @@ namespace TN_CSDLPT
                 MessageBox.Show("Không có giáo viên để sửa", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
+            myStack.Push("EXEC SP_RESTORESUAGV '" + txtMaGV.Text.Trim() + "','" + txtHo.Text + "','" + txtTen.Text + "','" + txtHocVi.Text + "','" + txtMaKhoa.Text + "'");
             setupButtonFirst();
             isEditting = true;
             txtMaGV.Enabled = false;
@@ -184,6 +185,7 @@ namespace TN_CSDLPT
                 try
                 {
                     maGV = ((DataRowView)bdsGV[bdsGV.Position])["MAGV"].ToString();
+                    myStack.Push("EXEC SP_RESTOREXOAGV '" + txtMaGV.Text.Trim() + "','" + txtHo.Text.Trim() + "','" + txtTen.Text.Trim() + "','" + txtHocVi.Text.Trim() + "','" + txtMaKhoa.Text.Trim() + "'");
                     this.bdsGV.RemoveCurrent();
                     this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
                     this.gIAOVIENTableAdapter.Update(this.DS.GIAOVIEN);
@@ -200,6 +202,7 @@ namespace TN_CSDLPT
             //{
             //    btnXoa.Enabled = btnSua.Enabled = false;
             //}
+            btnPhucHoi.Enabled = true;
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -243,6 +246,7 @@ namespace TN_CSDLPT
                     {
                         this.bdsGV.EndEdit();
                         this.gIAOVIENTableAdapter.Update(this.DS.GIAOVIEN);
+                        myStack.Push("EXEC SP_RESTORETHEMGV '" + txtMaGV.Text + "'");
                         MessageBox.Show("Đã thêm thành công", "Thông báo", MessageBoxButtons.OK);
                     }
                     catch
@@ -301,7 +305,20 @@ namespace TN_CSDLPT
 
             txtMaGV.Enabled = true;
             cbKhoa.Enabled = true;
-        }       
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (myStack.Count == 0)
+            {
+                MessageBox.Show("Đã phục hồi hết các thao tác, không thể phục hồi thêm");
+                return;
+            }  
+            String sql = myStack.Pop();
+            if (Program.execNonQuery(sql) != 0) return;
+            gIAOVIENTableAdapter.Fill(DS.GIAOVIEN);
+            MessageBox.Show("Phục hồi thành công!");
+        }
     }
     
 }
