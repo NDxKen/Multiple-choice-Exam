@@ -18,40 +18,31 @@ namespace TN_CSDLPT
             InitializeComponent();
         }
 
-        private void gIAOVIEN_DANGKYBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bdsGVDK.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.DS);
-
-        }
-
         private void FormChonMonThi_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
             DS.EnforceConstraints = false;
             this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
             this.gIAOVIEN_DANGKYTableAdapter.Fill(this.DS.GIAOVIEN_DANGKY);
-            //bdsGVDK.Filter = "NGAYTHI = '" + DateTime.Now.ToShortDateString() + "'";
-            MessageBox.Show(DateTime.Now.ToShortDateString());
-            MessageBox.Show(((DataRowView)bdsGVDK[0])["NGAYTHI"].ToString());
+            if (Program.mNhom == "SINHVIEN")
+                bdsGVDK.Filter = "NGAYTHI >= '" + getSqlDate(DateTime.Now) + "' AND NGAYTHI <'" + getSqlDate(DateTime.Now.AddDays(1)) + "'";
         }
 
-        private Form checkExists(Type ftype)
+        private String getSqlDate(DateTime date)
         {
-            foreach(Form f in this.MdiChildren)
-            {
-                if(f.GetType() == ftype)
-                {
-                    return f;
-                }
-            }
-            return null;
+            String year = "" + date.Year;
+            String month = (date.Month < 10) ? "0" + date.Month : "" + date.Month;
+            String day = (date.Day < 10) ? "0" + date.Day : "" + date.Day;
+            return year + "-" + month + "-" + day + " 00:00:00";
         }
 
         private void btnThi_Click(object sender, EventArgs e)
         {
-            if (bdsGVDK.Count == 0) return;
+            if (bdsGVDK.Count == 0)
+            {
+                MessageBox.Show("Không có lịch thi", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
             FormThi.maMH = ((DataRowView)bdsGVDK[bdsGVDK.Position])["MAMH"].ToString();
             FormThi.maLop = ((DataRowView)bdsGVDK[bdsGVDK.Position])["MALOP"].ToString();
             FormThi.trinhDo = gvGVDK.GetRowCellValue(gvGVDK.FocusedRowHandle, "TRINHDO").ToString();
@@ -59,12 +50,30 @@ namespace TN_CSDLPT
             FormThi.lan = ((DataRowView)bdsGVDK[bdsGVDK.Position])["LAN"].ToString();
             FormThi.soCauThi = Int32.Parse(gvGVDK.GetRowCellValue(gvGVDK.FocusedRowHandle, "SOCAUTHI").ToString());
             FormThi.thoiGian = Int32.Parse(((DataRowView)bdsGVDK[bdsGVDK.Position])["THOIGIAN"].ToString());
-            String strCHECKDATHI = "EXEC SP_CHECKDATHI '" + Program.userName + "','" + FormThi.maMH + "','" + FormThi.lan + "'";
-            if (Program.execNonQuery(strCHECKDATHI) != 0) return;
+            if (Program.mNhom == "SINHVIEN")
+            {
+                String strCHECKDATHI = "EXEC SP_CHECKDATHI '" + Program.userName + "','" + FormThi.maMH + "','" + FormThi.lan + "'";
+                if (Program.execNonQuery(strCHECKDATHI) != 0) return;
+            }
             Form frm = new FormThi();
             frm.Activate();
             frm.Show();
-            Program.formMainStudent.Visible = false;
+            if(Program.mNhom != "SINHVIEN")
+            {
+                Program.formMain.Visible = false;
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            if(Program.mNhom == "SINHVIEN")
+            {
+                Application.Exit();
+            } else
+            {
+                this.Close();
+            }
+            
         }
     }
 }

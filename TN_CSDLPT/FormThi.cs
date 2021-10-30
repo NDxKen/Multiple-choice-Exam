@@ -19,7 +19,7 @@ namespace TN_CSDLPT
         public static String trinhDo = "";
         public static String ngayThi = "";
         public static String lan = "";
-        public static int soCauThi = 0;       
+        public static int soCauThi = 0;
         public static int thoiGian = 0;
 
 
@@ -30,10 +30,10 @@ namespace TN_CSDLPT
 
         Dictionary<int, DeThi> dictionary = new Dictionary<int, DeThi>();
         BindingSource bdsDeThi;
-        
+
         public FormThi()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void FormThi_Load(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace TN_CSDLPT
             second = 60;
 
             DataTable dt = new DataTable();
-            String str = "EXEC SP_THI '" + trinhDo + "','" + maMH + "','" + soCauThi + "'" ;          
+            String str = "EXEC SP_THI '" + trinhDo + "','" + maMH + "','" + soCauThi + "'";
             try
             {
                 dt = Program.execSqlDataTable(str);
@@ -81,7 +81,7 @@ namespace TN_CSDLPT
             return d;
         }
 
-        
+
 
         private void rdbCauSo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -107,19 +107,22 @@ namespace TN_CSDLPT
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            second--;            
+            second--;
             if (second == 0 && minute != 0)
             {
                 minute--;
                 second = 59;
             }
-            if(second == 0 && minute == 0)
+            if (second == 0 && minute == 0)
             {
                 timer.Stop();
-                calculateScore();               
+                calculateScore();
                 lbDiemThi.Text = diemThi.ToString();
-                saveIntoBangDiem();
                 navButton();
+                if (Program.mNhom == "SINHVIEN")
+                {
+                    saveIntoBangDiem();
+                }
             }
             showTime();
         }
@@ -131,17 +134,19 @@ namespace TN_CSDLPT
                 if (second < 10)
                 {
                     lbTime.Text = "0" + minute + ":0" + second;
-                } else
+                }
+                else
                 {
                     lbTime.Text = "0" + minute + ":" + second;
                 }
             }
             else
             {
-                if(second < 10)
+                if (second < 10)
                 {
                     lbTime.Text = minute + ":0" + second;
-                } else
+                }
+                else
                 {
                     lbTime.Text = minute + ":" + second;
                 }
@@ -150,9 +155,9 @@ namespace TN_CSDLPT
 
         private void calculateScore()
         {
-            foreach(KeyValuePair<int, DeThi> item in dictionary)
+            foreach (KeyValuePair<int, DeThi> item in dictionary)
             {
-                if(item.Value.DaChon == item.Value.DapAn)
+                if (item.Value.DaChon == item.Value.DapAn)
                 {
                     diemThi += diemMoiCau;
                 }
@@ -163,18 +168,26 @@ namespace TN_CSDLPT
 
         private void btnNopBai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(checkFullDapAn())
+            if (checkFullDapAn())
             {
                 calculateScore();
                 lbDiemThi.Text = diemThi.ToString();
-                saveIntoBangDiem();
+                if (Program.mNhom == "SINHVIEN")
+                {
+                    saveIntoBangDiem();
+                }
                 navButton();
-            } else
+            }
+            else
             {
-                if(MessageBox.Show("Bạn chưa chọn hết đáp án, bạn chắc chắn muốn nộp bài không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                if (MessageBox.Show("Bạn chưa chọn hết đáp án, bạn chắc chắn muốn nộp bài không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
                     calculateScore();
                     lbDiemThi.Text = diemThi.ToString();
-                    saveIntoBangDiem();
+                    if (Program.mNhom == "SINHVIEN")
+                    {
+                        saveIntoBangDiem();
+                    }
                     navButton();
                 }
             }
@@ -191,9 +204,10 @@ namespace TN_CSDLPT
 
         private Boolean checkFullDapAn()
         {
-            foreach(KeyValuePair<int, DeThi> item in dictionary)
+            foreach (KeyValuePair<int, DeThi> item in dictionary)
             {
-                if(item.Value.DaChon.Equals("X")) {
+                if (item.Value.DaChon.Equals("X"))
+                {
                     return false;
                 }
             }
@@ -202,7 +216,13 @@ namespace TN_CSDLPT
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Program.formMainStudent.Visible = true;
+            if(Program.mNhom == "SINHVIEN")
+            {
+                Program.fCMT.Visible = true;
+            } else
+            {
+                Program.formMain.Visible = true;
+            }
             this.Close();
         }
 
@@ -216,10 +236,10 @@ namespace TN_CSDLPT
             if (Program.myReader == null) return;
             Program.myReader.Read();
             String baiThi = Program.myReader.GetInt32(0).ToString();
-            Program.myReader.Close();           
-            foreach(KeyValuePair<int, DeThi> item in dictionary)
+            Program.myReader.Close();
+            foreach (KeyValuePair<int, DeThi> item in dictionary)
             {
-                 str = "EXEC SP_INSERTCTBAITHI '" + baiThi + "', '" + item.Value.CauHoi + "', '" + item.Key + "', '" + item.Value.DaChon + "'";
+                str = "EXEC SP_INSERTCTBAITHI '" + baiThi + "', '" + item.Value.CauHoi + "', '" + item.Key + "', '" + item.Value.DaChon + "'";
                 try
                 {
                     Program.execNonQuery(str);
@@ -233,5 +253,5 @@ namespace TN_CSDLPT
         }
     }
 
-   
+
 }

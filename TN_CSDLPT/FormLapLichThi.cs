@@ -47,7 +47,7 @@ namespace TN_CSDLPT
             cbCoSo.SelectedIndex = Program.mCoSo;
 
 
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled  = true;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = false;
             pcInput.Enabled = false;
             pcInfo.Visible = false;
@@ -149,7 +149,7 @@ namespace TN_CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(bdsGVDK.Count == 0)
+            if (bdsGVDK.Count == 0)
             {
                 MessageBox.Show("Không còn lịch để sửa", "Thông báo", MessageBoxButtons.OK);
                 return;
@@ -166,7 +166,9 @@ namespace TN_CSDLPT
                 MessageBox.Show("Không có lịch để xóa", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
-             if(MessageBox.Show("Bạn có thực sự muốn xóa?", "Thông báo", MessageBoxButtons.OKCancel) ==DialogResult.OK)
+            String SP_CHECKXOALICHDATHI = "EXEC SP_CHECKXOALICHDATHI '" + txtMaLop.Text + "','" + txtMaMH.Text + "','" + cbLanThi + "'";
+            if (Program.execNonQuery(SP_CHECKXOALICHDATHI) == 1) return;
+            if (MessageBox.Show("Bạn có thực sự muốn xóa?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
@@ -174,7 +176,8 @@ namespace TN_CSDLPT
                     bdsGVDK.RemoveCurrent();
                     gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
                     gIAOVIEN_DANGKYTableAdapter.Update(DS.GIAOVIEN_DANGKY);
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi xóa giáo viên đăng ký\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                     gIAOVIEN_DANGKYTableAdapter.Fill(DS.GIAOVIEN_DANGKY);
@@ -203,9 +206,9 @@ namespace TN_CSDLPT
                 String strCHECKLAPLICHTHI = "EXEC SP_CHECKLAPLICHTHI '" + txtMaMH.Text + "', '" + txtMaLop.Text + "', '" + cbLanThi.SelectedItem.ToString() + "' , '" + dateNgayThi.Text + "'";
                 if (Program.execNonQuery(strCHECKLAPLICHTHI) != 0) return;
                 //thiếu SP check đủ câu hỏi chưa
-                String strCHECKDUCAUHOITHI = "EXEC SP_CHECKDUCAUHOITHI '" + txtMaMH.Text +"','" + cbTrinhDo.Text + "','" + spinSoCauThi.Text + "'";
+                String strCHECKDUCAUHOITHI = "EXEC SP_CHECKDUCAUHOITHI '" + txtMaMH.Text + "','" + cbTrinhDo.Text + "','" + spinSoCauThi.Text + "'";
                 if (Program.execNonQuery(strCHECKDUCAUHOITHI) != 0) return;
-                
+
                 try
                 {
                     bdsGVDK.EndEdit();
@@ -227,7 +230,8 @@ namespace TN_CSDLPT
                     gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
                     gIAOVIEN_DANGKYTableAdapter.Update(DS.GIAOVIEN_DANGKY);
                     MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK);
-                } catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Sửa thất bại\n" + ex.Message, "Thông báo", MessageBoxButtons.OK);
                 }

@@ -102,5 +102,17 @@ namespace TN_CSDLPT
                 f.Show();
             }
         }
+
+        private void btnThiThu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = checkExists(typeof(FormChonMonThi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Form f = new FormChonMonThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

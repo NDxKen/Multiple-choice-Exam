@@ -40,11 +40,6 @@ namespace TN_CSDLPT
 
         private void formLogin_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS_DSPM.getSubcribers' table. You can move, or remove it, as needed.
-            //this.getSubcribersTableAdapter.Fill(this.dS_DSPM.getSubcribers);
-            //Program.serverName = cbCoSo.SelectedValue.ToString();
-
-
             if (Ketnoi_CSDLGOC() == 0) return;
             DataTable dt = new DataTable();
             dt = Program.execSqlDataTable("SELECT * FROM GETSUBCRIBERS");
@@ -66,15 +61,15 @@ namespace TN_CSDLPT
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtLogin.Text.Trim()=="")
+            if (txtLogin.Text.Trim() == "")
             {
                 MessageBox.Show("Tài khoản không được để trống", "Thông báo", MessageBoxButtons.OK);
                 txtLogin.Focus();
                 return;
             }
-            try 
+            try
             {
-                if(rdbGV.Checked)
+                if (rdbGV.Checked)
                 {
                     Program.mLogin = txtLogin.Text;
                     Program.password = txtPassword.Text;
@@ -91,7 +86,7 @@ namespace TN_CSDLPT
                     Program.userName = Program.myReader.GetString(0);
                     Program.mHoTen = Program.myReader.GetString(1);
                     Program.mNhom = Program.myReader.GetString(2);
-                    if(Convert.IsDBNull(Program.userName))
+                    if (Convert.IsDBNull(Program.userName))
                     {
                         MessageBox.Show("userName bạn nhập không có quyền truy cập dữ liệu\n Bạn xem lại userName, password", "Thông báo", MessageBoxButtons.OK);
                         return;
@@ -108,7 +103,7 @@ namespace TN_CSDLPT
                     Program.myReader.Close();
                     Program.conn.Close();
                 }
-                if(rdbSV.Checked)
+                if (rdbSV.Checked)
                 {
                     Program.mLogin = "SV";
                     Program.password = "147258369";
@@ -120,13 +115,13 @@ namespace TN_CSDLPT
                     String str = "exec SP_GETLOGININFORMATION '" + Program.mLogin + "'";
                     Program.myReader = Program.execSqlDataReader(str);
                     if (Program.myReader == null) return;
-                    Program.myReader.Read();                   
+                    Program.myReader.Read();
                     Program.mNhom = Program.myReader.GetString(2);
                     Program.myReader.Close();
 
                     //check tài khoản user,pass
                     String strCheckAccount = "exec SP_CHECKTAIKHOANSINHVIEN '" + txtLogin.Text.Trim() + "','" + txtPassword.Text.Trim() + "'";
-                    if(Program.execNonQuery(strCheckAccount) == 1)
+                    if (Program.execNonQuery(strCheckAccount) == 1)
                     {
                         return;
                     }
@@ -147,21 +142,22 @@ namespace TN_CSDLPT
                         return;
                     }
 
-                    Program.formMainStudent = new FormMainStudent();
-                    Program.formMainStudent.MASV.Text = "Mã SV: " + Program.userName;
-                    Program.formMainStudent.HOTEN.Text = "Họ tên: " + Program.mHoTen;
-                    Program.formMainStudent.NHOM.Text = "Nhóm: " + Program.mNhom;
-                    Program.formMainStudent.TENLOP.Text = "Lớp: " + Program.svTenLop;
-                    
+                    Program.fCMT = new FormChonMonThi();
+                    Program.fCMT.MASV.Text = "Mã SV: " + Program.userName;
+                    Program.fCMT.HOTEN.Text = "Họ tên: " + Program.mHoTen;
+                    Program.fCMT.NHOM.Text = "Nhóm: " + Program.mNhom;
+                    Program.fCMT.TENLOP.Text = "Lớp: " + Program.svTenLop;
+                    Program.fCMT.Activate();
+                    Program.fCMT.Show();
                     this.Hide();
-                    Program.formMainStudent.Activate();
-                    Program.formMainStudent.Show();
+
                     Program.conn.Close();
                     Program.myReader.Close();
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK);
             }
         }
     }

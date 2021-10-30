@@ -36,11 +36,8 @@ namespace TN_CSDLPT
         public static int mCoSo = 0;
 
         public static BindingSource bdsDSPM = new BindingSource();
-        //public static FormLogin formLogin;
         public static FormMain formMain;
-        public static FormMainStudent formMainStudent;
-
-        
+        public static FormChonMonThi fCMT;
 
         public static int ketNoi()
         {

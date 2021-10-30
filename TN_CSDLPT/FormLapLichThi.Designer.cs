@@ -676,6 +676,10 @@ namespace TN_CSDLPT
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgayThi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayThi.Properties.DisplayFormat.FormatString = "yyyy-MM-dd";
+            this.dateNgayThi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateNgayThi.Properties.EditFormat.FormatString = "yyyy-MM-dd";
+            this.dateNgayThi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayThi.Size = new System.Drawing.Size(175, 22);
             this.dateNgayThi.TabIndex = 11;
             // 
