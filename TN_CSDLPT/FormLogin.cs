@@ -158,7 +158,6 @@ namespace TN_CSDLPT
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK);
-                return;
             }
         }
     }
