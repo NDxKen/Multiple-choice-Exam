@@ -39,6 +39,12 @@ namespace TN_CSDLPT
             this.btnXemKetQua = new DevExpress.XtraBars.BarButtonItem();
             this.btnCreateAccount = new DevExpress.XtraBars.BarButtonItem();
             this.btnThiThu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKhoaLop = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMonHoc = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBoDe = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBangDiem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDSDK = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -70,10 +76,16 @@ namespace TN_CSDLPT
             this.btnLapLichThi,
             this.btnXemKetQua,
             this.btnCreateAccount,
-            this.btnThiThu});
+            this.btnThiThu,
+            this.btnSinhVien,
+            this.btnKhoaLop,
+            this.btnMonHoc,
+            this.btnBoDe,
+            this.btnBangDiem,
+            this.btnDSDK});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ribbonControl1.MaxItemId = 10;
+            this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage3,
@@ -140,6 +152,60 @@ namespace TN_CSDLPT
             this.btnThiThu.Name = "btnThiThu";
             this.btnThiThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThiThu_ItemClick);
             // 
+            // btnSinhVien
+            // 
+            this.btnSinhVien.Caption = "Sinh viên";
+            this.btnSinhVien.Id = 10;
+            this.btnSinhVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.ImageOptions.Image")));
+            this.btnSinhVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.ImageOptions.LargeImage")));
+            this.btnSinhVien.Name = "btnSinhVien";
+            this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
+            // 
+            // btnKhoaLop
+            // 
+            this.btnKhoaLop.Caption = "Khoa Lớp";
+            this.btnKhoaLop.Id = 11;
+            this.btnKhoaLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKhoaLop.ImageOptions.Image")));
+            this.btnKhoaLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnKhoaLop.ImageOptions.LargeImage")));
+            this.btnKhoaLop.Name = "btnKhoaLop";
+            this.btnKhoaLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKhoaLop_ItemClick);
+            // 
+            // btnMonHoc
+            // 
+            this.btnMonHoc.Caption = "Môn học";
+            this.btnMonHoc.Id = 12;
+            this.btnMonHoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMonHoc.ImageOptions.Image")));
+            this.btnMonHoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnMonHoc.ImageOptions.LargeImage")));
+            this.btnMonHoc.Name = "btnMonHoc";
+            this.btnMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonHoc_ItemClick);
+            // 
+            // btnBoDe
+            // 
+            this.btnBoDe.Caption = "Bộ đề";
+            this.btnBoDe.Id = 13;
+            this.btnBoDe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBode.ImageOptions.Image")));
+            this.btnBoDe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBode.ImageOptions.LargeImage")));
+            this.btnBoDe.Name = "btnBoDe";
+            this.btnBoDe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBoDe_ItemClick);
+            // 
+            // btnBangDiem
+            // 
+            this.btnBangDiem.Caption = "Xem Bảng Điểm";
+            this.btnBangDiem.Id = 14;
+            this.btnBangDiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBangDiem.ImageOptions.Image")));
+            this.btnBangDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBangDiem.ImageOptions.LargeImage")));
+            this.btnBangDiem.Name = "btnBangDiem";
+            this.btnBangDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBangDiem_ItemClick);
+            // 
+            // btnDSDK
+            // 
+            this.btnDSDK.Caption = "Xem DSDK Thi";
+            this.btnDSDK.Id = 15;
+            this.btnDSDK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSDK.ImageOptions.Image")));
+            this.btnDSDK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDSDK.ImageOptions.LargeImage")));
+            this.btnDSDK.Name = "btnDSDK";
+            this.btnDSDK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSDK_ItemClick);
+            // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -172,6 +238,10 @@ namespace TN_CSDLPT
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.btnGV);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnSinhVien);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnKhoaLop);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnMonHoc);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnBoDe);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
@@ -197,6 +267,8 @@ namespace TN_CSDLPT
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnXemKetQua);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnBangDiem);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnDSDK);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
@@ -282,6 +354,12 @@ namespace TN_CSDLPT
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem btnThiThu;
+        private DevExpress.XtraBars.BarButtonItem btnSinhVien;
+        private DevExpress.XtraBars.BarButtonItem btnKhoaLop;
+        private DevExpress.XtraBars.BarButtonItem btnMonHoc;
+        private DevExpress.XtraBars.BarButtonItem btnBoDe;
+        private DevExpress.XtraBars.BarButtonItem btnBangDiem;
+        private DevExpress.XtraBars.BarButtonItem btnDSDK;
     }
 }
 

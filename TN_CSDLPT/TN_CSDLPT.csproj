@@ -11,6 +11,21 @@
     <AssemblyName>TN_CSDLPT</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -76,11 +91,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FormBoDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBoDe.Designer.cs">
+      <DependentUpon>FormBoDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChonLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChonLop.Designer.cs">
+      <DependentUpon>FormChonLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChonMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChonMonHoc.Designer.cs">
+      <DependentUpon>FormChonMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChonMonThi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormChonMonThi.Designer.cs">
       <DependentUpon>FormChonMonThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDSDKTHI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDSDKTHI.Designer.cs">
+      <DependentUpon>FormDSDKTHI.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGV.cs">
       <SubType>Form</SubType>
@@ -88,11 +127,23 @@
     <Compile Include="FormGV.Designer.cs">
       <DependentUpon>FormGV.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKhoa.Designer.cs">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLapLichThi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormLapLichThi.Designer.cs">
       <DependentUpon>FormLapLichThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLop.Designer.cs">
+      <DependentUpon>FormLop.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -112,6 +163,18 @@
     <Compile Include="FormMainStudent.Designer.cs">
       <DependentUpon>FormMainStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMonHoc.Designer.cs">
+      <DependentUpon>FormMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSV.Designer.cs">
+      <DependentUpon>FormSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTaoTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,28 +187,71 @@
     <Compile Include="FormThi.Designer.cs">
       <DependentUpon>FormThi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormThongTinSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThongTinSV.Designer.cs">
+      <DependentUpon>FormThongTinSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormXEMBANGDIEM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXEMBANGDIEM.Designer.cs">
+      <DependentUpon>FormXEMBANGDIEM.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormXemKetQua.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormXemKetQua.Designer.cs">
       <DependentUpon>FormXemKetQua.cs</DependentUpon>
     </Compile>
+    <Compile Include="PhucHoi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptDSDKTHI1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptDSDKTHI1.Designer.cs">
+      <DependentUpon>rptDSDKTHI1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptXEMBANGDIEM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptXEMBANGDIEM.Designer.cs">
+      <DependentUpon>rptXEMBANGDIEM.cs</DependentUpon>
+    </Compile>
     <Compile Include="rpt_XemKetQua.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rpt_XemKetQua.Designer.cs">
       <DependentUpon>rpt_XemKetQua.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormBoDe.resx">
+      <DependentUpon>FormBoDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChonLop.resx">
+      <DependentUpon>FormChonLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChonMonHoc.resx">
+      <DependentUpon>FormChonMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChonMonThi.resx">
       <DependentUpon>FormChonMonThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDSDKTHI.resx">
+      <DependentUpon>FormDSDKTHI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGV.resx">
       <DependentUpon>FormGV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormKhoa.resx">
+      <DependentUpon>FormKhoa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLapLichThi.resx">
       <DependentUpon>FormLapLichThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLop.resx">
+      <DependentUpon>FormLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -156,11 +262,23 @@
     <EmbeddedResource Include="FormMainStudent.resx">
       <DependentUpon>FormMainStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMonHoc.resx">
+      <DependentUpon>FormMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSV.resx">
+      <DependentUpon>FormSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTaoTaiKhoan.resx">
       <DependentUpon>FormTaoTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThi.resx">
       <DependentUpon>FormThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThongTinSV.resx">
+      <DependentUpon>FormThongTinSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXEMBANGDIEM.resx">
+      <DependentUpon>FormXEMBANGDIEM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormXemKetQua.resx">
       <DependentUpon>FormXemKetQua.cs</DependentUpon>
@@ -175,6 +293,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rptDSDKTHI1.resx">
+      <DependentUpon>rptDSDKTHI1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptXEMBANGDIEM.resx">
+      <DependentUpon>rptXEMBANGDIEM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rpt_XemKetQua.resx">
       <DependentUpon>rpt_XemKetQua.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +326,18 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

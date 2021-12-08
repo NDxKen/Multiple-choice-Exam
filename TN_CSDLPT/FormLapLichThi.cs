@@ -13,6 +13,9 @@ namespace TN_CSDLPT
 {
     public partial class FormLapLichThi : DevExpress.XtraEditors.XtraForm
     {
+        public static string maMH = "";
+        public static string maLop = "";
+
         private Boolean isAdding = false;
         private Boolean isEditing = false;
         public FormLapLichThi()

@@ -91,19 +91,7 @@ namespace TN_CSDLPT
             rdbLuaChon.Properties.Items.Add(new RadioGroupItem("B", "B. " + dictionary[rdbCauSo.SelectedIndex + 1].B));
             rdbLuaChon.Properties.Items.Add(new RadioGroupItem("C", "C. " + dictionary[rdbCauSo.SelectedIndex + 1].C));
             rdbLuaChon.Properties.Items.Add(new RadioGroupItem("D", "D. " + dictionary[rdbCauSo.SelectedIndex + 1].D));
-            if (dictionary[rdbCauSo.SelectedIndex + 1].DaChon == "A")
-            {
-                rdbLuaChon.SelectedIndex = 0;
-            }else if(dictionary[rdbCauSo.SelectedIndex + 1].DaChon == "B")
-            {
-                rdbLuaChon.SelectedIndex = 1;
-            }else if(dictionary[rdbCauSo.SelectedIndex + 1].DaChon == "C")
-            {
-                rdbLuaChon.SelectedIndex = 2;
-            } else if (dictionary[rdbCauSo.SelectedIndex + 1].DaChon == "D")
-            {
-                rdbLuaChon.SelectedIndex = 3;
-            } else if (dictionary[rdbCauSo.SelectedIndex + 1].DaChon == "X")
+            if (dictionary[rdbCauSo.SelectedIndex + 1].DaChon == "X")
             {
                 rdbLuaChon.SelectedIndex = -1;
             }
