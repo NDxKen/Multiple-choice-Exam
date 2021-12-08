@@ -47,6 +47,7 @@ namespace TN_CSDLPT
             FormThi.maLop = ((DataRowView)bdsGVDK[bdsGVDK.Position])["MALOP"].ToString();
             FormThi.trinhDo = gvGVDK.GetRowCellValue(gvGVDK.FocusedRowHandle, "TRINHDO").ToString();
             FormThi.ngayThi = ((DataRowView)bdsGVDK[bdsGVDK.Position])["NGAYTHI"].ToString();
+            /*FormThi.ngayThi = getSqlDate(FormThi.ngayThi);*/
             FormThi.lan = ((DataRowView)bdsGVDK[bdsGVDK.Position])["LAN"].ToString();
             FormThi.soCauThi = Int32.Parse(gvGVDK.GetRowCellValue(gvGVDK.FocusedRowHandle, "SOCAUTHI").ToString());
             FormThi.thoiGian = Int32.Parse(((DataRowView)bdsGVDK[bdsGVDK.Position])["THOIGIAN"].ToString());
@@ -75,5 +76,7 @@ namespace TN_CSDLPT
             }
             
         }
+
+
     }
 }

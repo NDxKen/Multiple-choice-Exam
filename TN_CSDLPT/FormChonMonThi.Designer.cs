@@ -162,6 +162,7 @@ namespace TN_CSDLPT
             this.colNGAYTHI.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNGAYTHI.MinWidth = 25;
             this.colNGAYTHI.Name = "colNGAYTHI";
+            this.colNGAYTHI.OptionsFilter.AllowFilter = false;
             this.colNGAYTHI.Visible = true;
             this.colNGAYTHI.VisibleIndex = 3;
             this.colNGAYTHI.Width = 94;
