@@ -53,10 +53,10 @@
             this.MonHocTableAdapter = new TN_CSDLPT.DSTableAdapters.MONHOCTableAdapter();
             this.tableAdapterManager = new TN_CSDLPT.DSTableAdapters.TableAdapterManager();
             this.gcMonHoc = new DevExpress.XtraGrid.GridControl();
-            this.bdsBoDe = new System.Windows.Forms.BindingSource(this.components);
             this.gvMonHoc = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bdsBoDe = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTenMH = new DevExpress.XtraEditors.TextEdit();
             this.txtMaMH = new DevExpress.XtraEditors.TextEdit();
@@ -71,8 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMonHoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMonHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).BeginInit();
@@ -312,11 +312,6 @@
             this.gcMonHoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMonHoc});
             // 
-            // bdsBoDe
-            // 
-            this.bdsBoDe.DataMember = "FK_BODE_MONHOC";
-            this.bdsBoDe.DataSource = this.bdsMonHoc;
-            // 
             // gvMonHoc
             // 
             this.gvMonHoc.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -342,6 +337,11 @@
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
             this.colTENMH.Width = 94;
+            // 
+            // bdsBoDe
+            // 
+            this.bdsBoDe.DataMember = "FK_BODE_MONHOC";
+            this.bdsBoDe.DataSource = this.bdsMonHoc;
             // 
             // groupBox1
             // 
@@ -416,8 +416,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMonHoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMonHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMH.Properties)).EndInit();

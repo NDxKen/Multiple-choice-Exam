@@ -55,6 +55,8 @@ namespace TN_CSDLPT
             cmbCoSo.DisplayMember = "TEN_COSO";
             cmbCoSo.ValueMember = "TEN_SERVER";
             cmbCoSo.SelectedIndex = Program.mCoSo;
+            groupControl2.Enabled = false;
+  
             if (Program.mNhom == "TRUONG")
                 cmbCoSo.Enabled = true;
             else
@@ -94,6 +96,7 @@ namespace TN_CSDLPT
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = true;
             gcSinhVien.Enabled = false;
+            groupControl2.Enabled = true;
         }
 
         private void cmbCoSo_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,6 +151,8 @@ namespace TN_CSDLPT
             btnGhi.Enabled = btnHuy.Enabled = false;
             gcSinhVien.Enabled = true;
             isDangThem = isDangSua = false;
+            groupControl2.Enabled = false;
+
         }
 
         private void cmbMaLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,6 +236,7 @@ namespace TN_CSDLPT
                 btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
                 btnGhi.Enabled = btnHuy.Enabled = false;
                 gcSinhVien.Enabled = true;
+                groupControl2.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -277,10 +283,13 @@ namespace TN_CSDLPT
                     }
                 }
             }
+            groupControl2.Enabled = false;
+
         }
 
         private void btnPhuchoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl2.Enabled = true;
             string ketQua = phucHoi.PopStack();
             if (ketQua.Equals("success"))
             {
@@ -313,8 +322,7 @@ namespace TN_CSDLPT
             cmbMaLop.DisplayMember = "TENLOP";
             cmbMaLop.ValueMember = "MALOP";
             cmbMaLop.SelectedIndex = index;
-
-        //    groupControl2.Enabled = false;
+            groupControl2.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = false;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = gcSinhVien.Enabled = true;
             if (bdsSV.Count == 0)
@@ -332,12 +340,12 @@ namespace TN_CSDLPT
             isDangSua = true;
             suaLop = true;
             phucHoi.Save_OldSVs(txtHo.Text, txtTen.Text, dtpNgaySinh.Text, txtDiaChi.Text, txtPassWord.Text, cmbMaLop.SelectedValue.ToString());
-            //     groupControl2.Enabled = true;
             txtMaSV.Enabled = false;
             txtMaLop.Enabled = true;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = true;
             gcSinhVien.Enabled = true;
+            groupControl2.Enabled = true;
         }
 
        

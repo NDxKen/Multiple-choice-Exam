@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label tENLOPLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSV));
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label dIACHILabel;
             System.Windows.Forms.Label nGAYSINHLabel;
@@ -38,6 +37,8 @@
             System.Windows.Forms.Label hOLabel;
             System.Windows.Forms.Label mASVLabel;
             System.Windows.Forms.Label label2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSV));
+            System.Windows.Forms.Label label3;
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -73,13 +74,13 @@
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bdsBangDiem = new System.Windows.Forms.BindingSource(this.components);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.txtPassWord = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.dtpNgaySinh = new DevExpress.XtraEditors.DateEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
             this.txtMaSV = new DevExpress.XtraEditors.TextEdit();
-            this.txtPassWord = new DevExpress.XtraEditors.TextEdit();
             tENLOPLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             dIACHILabel = new System.Windows.Forms.Label();
@@ -88,6 +89,7 @@
             hOLabel = new System.Windows.Forms.Label();
             mASVLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSV)).BeginInit();
@@ -97,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassWord.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
@@ -104,7 +107,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaSV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassWord.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tENLOPLabel
@@ -115,6 +117,69 @@
             tENLOPLabel.Size = new System.Drawing.Size(33, 17);
             tENLOPLabel.TabIndex = 2;
             tENLOPLabel.Text = "LỚP";
+            // 
+            // mALOPLabel
+            // 
+            mALOPLabel.AutoSize = true;
+            mALOPLabel.Location = new System.Drawing.Point(316, 182);
+            mALOPLabel.Name = "mALOPLabel";
+            mALOPLabel.Size = new System.Drawing.Size(52, 17);
+            mALOPLabel.TabIndex = 10;
+            mALOPLabel.Text = "Mã lớp:";
+            // 
+            // dIACHILabel
+            // 
+            dIACHILabel.AutoSize = true;
+            dIACHILabel.Location = new System.Drawing.Point(408, 176);
+            dIACHILabel.Name = "dIACHILabel";
+            dIACHILabel.Size = new System.Drawing.Size(53, 17);
+            dIACHILabel.TabIndex = 8;
+            dIACHILabel.Text = "Địa chỉ:";
+            // 
+            // nGAYSINHLabel
+            // 
+            nGAYSINHLabel.AutoSize = true;
+            nGAYSINHLabel.Location = new System.Drawing.Point(317, 101);
+            nGAYSINHLabel.Name = "nGAYSINHLabel";
+            nGAYSINHLabel.Size = new System.Drawing.Size(73, 17);
+            nGAYSINHLabel.TabIndex = 6;
+            nGAYSINHLabel.Text = "Ngày sinh:";
+            // 
+            // tENLabel
+            // 
+            tENLabel.AutoSize = true;
+            tENLabel.Location = new System.Drawing.Point(579, 59);
+            tENLabel.Name = "tENLabel";
+            tENLabel.Size = new System.Drawing.Size(36, 17);
+            tENLabel.TabIndex = 4;
+            tENLabel.Text = "Tên:";
+            // 
+            // hOLabel
+            // 
+            hOLabel.AutoSize = true;
+            hOLabel.Location = new System.Drawing.Point(318, 61);
+            hOLabel.Name = "hOLabel";
+            hOLabel.Size = new System.Drawing.Size(30, 17);
+            hOLabel.TabIndex = 2;
+            hOLabel.Text = "Họ:";
+            // 
+            // mASVLabel
+            // 
+            mASVLabel.AutoSize = true;
+            mASVLabel.Location = new System.Drawing.Point(28, 59);
+            mASVLabel.Name = "mASVLabel";
+            mASVLabel.Size = new System.Drawing.Size(50, 17);
+            mASVLabel.TabIndex = 0;
+            mASVLabel.Text = "Mã SV:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(922, 139);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(70, 17);
+            label2.TabIndex = 14;
+            label2.Text = "PassWord";
             // 
             // barManager1
             // 
@@ -308,6 +373,7 @@
             this.cmbMaLop.Size = new System.Drawing.Size(182, 24);
             this.cmbMaLop.TabIndex = 3;
             this.cmbMaLop.ValueMember = "MALOP";
+            this.cmbMaLop.SelectedIndexChanged += new System.EventHandler(this.cmbMaLop_SelectedIndexChanged);
             // 
             // bdsSV
             // 
@@ -458,6 +524,7 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(label3);
             this.groupControl2.Controls.Add(label2);
             this.groupControl2.Controls.Add(this.txtPassWord);
             this.groupControl2.Controls.Add(this.txtMaLop);
@@ -478,6 +545,15 @@
             this.groupControl2.Size = new System.Drawing.Size(1742, 264);
             this.groupControl2.TabIndex = 18;
             // 
+            // txtPassWord
+            // 
+            this.txtPassWord.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "PASSWORD", true));
+            this.txtPassWord.Location = new System.Drawing.Point(1038, 138);
+            this.txtPassWord.MenuManager = this.barManager1;
+            this.txtPassWord.Name = "txtPassWord";
+            this.txtPassWord.Size = new System.Drawing.Size(125, 22);
+            this.txtPassWord.TabIndex = 13;
+            // 
             // txtMaLop
             // 
             this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "MALOP", true));
@@ -487,24 +563,6 @@
             this.txtMaLop.Size = new System.Drawing.Size(125, 22);
             this.txtMaLop.TabIndex = 12;
             // 
-            // mALOPLabel
-            // 
-            mALOPLabel.AutoSize = true;
-            mALOPLabel.Location = new System.Drawing.Point(327, 180);
-            mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(52, 17);
-            mALOPLabel.TabIndex = 10;
-            mALOPLabel.Text = "Mã lớp:";
-            // 
-            // dIACHILabel
-            // 
-            dIACHILabel.AutoSize = true;
-            dIACHILabel.Location = new System.Drawing.Point(326, 141);
-            dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(53, 17);
-            dIACHILabel.TabIndex = 8;
-            dIACHILabel.Text = "Địa chỉ:";
-            // 
             // txtDiaChi
             // 
             this.txtDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "DIACHI", true));
@@ -513,15 +571,6 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(364, 22);
             this.txtDiaChi.TabIndex = 9;
-            // 
-            // nGAYSINHLabel
-            // 
-            nGAYSINHLabel.AutoSize = true;
-            nGAYSINHLabel.Location = new System.Drawing.Point(326, 101);
-            nGAYSINHLabel.Name = "nGAYSINHLabel";
-            nGAYSINHLabel.Size = new System.Drawing.Size(73, 17);
-            nGAYSINHLabel.TabIndex = 6;
-            nGAYSINHLabel.Text = "Ngày sinh:";
             // 
             // dtpNgaySinh
             // 
@@ -537,15 +586,6 @@
             this.dtpNgaySinh.Size = new System.Drawing.Size(125, 22);
             this.dtpNgaySinh.TabIndex = 7;
             // 
-            // tENLabel
-            // 
-            tENLabel.AutoSize = true;
-            tENLabel.Location = new System.Drawing.Point(598, 59);
-            tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(36, 17);
-            tENLabel.TabIndex = 4;
-            tENLabel.Text = "Tên:";
-            // 
             // txtTen
             // 
             this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "TEN", true));
@@ -554,15 +594,6 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(125, 22);
             this.txtTen.TabIndex = 5;
-            // 
-            // hOLabel
-            // 
-            hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(326, 59);
-            hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(30, 17);
-            hOLabel.TabIndex = 2;
-            hOLabel.Text = "Họ:";
             // 
             // txtHo
             // 
@@ -573,15 +604,6 @@
             this.txtHo.Size = new System.Drawing.Size(125, 22);
             this.txtHo.TabIndex = 3;
             // 
-            // mASVLabel
-            // 
-            mASVLabel.AutoSize = true;
-            mASVLabel.Location = new System.Drawing.Point(37, 59);
-            mASVLabel.Name = "mASVLabel";
-            mASVLabel.Size = new System.Drawing.Size(50, 17);
-            mASVLabel.TabIndex = 0;
-            mASVLabel.Text = "Mã SV:";
-            // 
             // txtMaSV
             // 
             this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "MASV", true));
@@ -591,23 +613,14 @@
             this.txtMaSV.Size = new System.Drawing.Size(125, 22);
             this.txtMaSV.TabIndex = 1;
             // 
-            // txtPassWord
+            // label3
             // 
-            this.txtPassWord.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "PASSWORD", true));
-            this.txtPassWord.Location = new System.Drawing.Point(1038, 138);
-            this.txtPassWord.MenuManager = this.barManager1;
-            this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Size = new System.Drawing.Size(125, 22);
-            this.txtPassWord.TabIndex = 13;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(949, 141);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(88, 21);
-            label2.TabIndex = 14;
-            label2.Text = "PassWord";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(318, 139);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(50, 17);
+            label3.TabIndex = 15;
+            label3.Text = "Địa Chỉ";
             // 
             // FormSV
             // 
@@ -635,6 +648,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassWord.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgaySinh.Properties.CalendarTimeProperties)).EndInit();
@@ -642,7 +656,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaSV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassWord.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -665,7 +678,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControl3;
         private DevExpress.XtraBars.BarDockControl barDockControl4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cmbMaLop;
         private System.Windows.Forms.ComboBox cmbCoSo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bdsSV;
@@ -692,5 +704,6 @@
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtMaSV;
         private DevExpress.XtraEditors.TextEdit txtPassWord;
+        private System.Windows.Forms.ComboBox cmbMaLop;
     }
 }

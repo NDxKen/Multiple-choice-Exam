@@ -86,6 +86,7 @@ namespace TN_CSDLPT
             gc2.Enabled = false;
             btnGhi.Enabled = false;
             btnHuy.Enabled = false;
+            groupControl3.Enabled = false;
         }
 
         private void cmbCoSo_SelectedIndexChanged(object sender, EventArgs e)
@@ -238,10 +239,12 @@ namespace TN_CSDLPT
             textLop.Enabled = txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
             gcKhoa.Enabled = gcLop.Enabled = true;
             isThemKH = isThemLop = false;
+            groupControl3.Enabled = false;
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl3.Enabled = true;
             if (isThemKH)
             {
                 if (textMaKhoa.Text.Trim().Length == 0)
@@ -398,6 +401,7 @@ namespace TN_CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl3.Enabled = true;
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
                 MessageBox.Show("Bạn không có quyền này!", "Thông báo", MessageBoxButtons.OK);
@@ -473,6 +477,7 @@ namespace TN_CSDLPT
 
         private void btnAddKhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl3.Enabled = true;
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
                 MessageBox.Show("Bạn không có quyền này!", "Thông báo", MessageBoxButtons.OK);
@@ -494,6 +499,7 @@ namespace TN_CSDLPT
 
         private void btnAddLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl3.Enabled = true;
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
                 MessageBox.Show("Bạn không có quyền này!", "Thông báo", MessageBoxButtons.OK);
