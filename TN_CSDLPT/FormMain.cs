@@ -14,6 +14,11 @@ namespace TN_CSDLPT
         public FormMain()
         {
             InitializeComponent();
+            if(Program.mNhom == "GIANGVIEN")
+            {
+                btnKhoaLop.Enabled = btnSinhVien.Enabled = btnMonHoc.Enabled = btnDSDK.Enabled
+                    = btnBangDiem.Enabled = btnCreateAccount.Enabled = btnGV.Enabled = false;
+            }
         }
 
         private Form checkExists(Type ftype)

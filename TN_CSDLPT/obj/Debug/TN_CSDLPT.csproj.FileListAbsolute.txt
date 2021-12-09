@@ -392,3 +392,15 @@ D:\CSDLPT\test\TN_CSDLPT\obj\Debug\TN_CSDLPT.csproj.CoreCompileInputs.cache
 D:\CSDLPT\test\TN_CSDLPT\obj\Debug\TN_CSDLPT.csproj.CopyComplete
 D:\CSDLPT\test\TN_CSDLPT\obj\Debug\TN_CSDLPT.exe
 D:\CSDLPT\test\TN_CSDLPT\obj\Debug\TN_CSDLPT.pdb
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormBoDe.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormChonLop.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormChonMonHoc.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormDSDKTHI.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormKhoa.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormLop.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormMonHoc.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormSV.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormThongTinSV.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.FormXEMBANGDIEM.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.rptDSDKTHI1.resources
+C:\Users\admin\source\repos\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.rptXEMBANGDIEM.resources
