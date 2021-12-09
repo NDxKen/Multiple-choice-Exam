@@ -39,14 +39,15 @@ namespace TN_CSDLPT
 
             this.LOPTableAdapter.Connection.ConnectionString = Program.connStr; 
             this.LOPTableAdapter.Fill(this.DS.LOP);
-         
+
             // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
 
             // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
 
             // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
-            this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
             this.MONHOCTableAdapter.Connection.ConnectionString = Program.connStr;
+            this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
+          
             grcHienThi.Visible = false;
 
             cmbLan.Items.Add("1");

@@ -14,8 +14,8 @@ namespace TN_CSDLPT
     public partial class FormBoDe : Form
     {
         PhucHoi phucHoi = new PhucHoi();
-        private string maMonHoc = "";
-        private string maCauHoi = "";
+    //    private string maMonHoc = "";
+    //    private string maCauHoi = "";
         Boolean isDangThem = false, isDangSua = false;
         public FormBoDe()
         {
@@ -32,7 +32,11 @@ namespace TN_CSDLPT
 
         private void FormBoDe_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS.CT_BAITHI' table. You can move, or remove it, as needed.
+           
             DS.EnforceConstraints = false;
+
+           
             this.BODETableAdapter.Connection.ConnectionString = Program.connStr;
             this.BODETableAdapter.Fill(this.DS.BODE);
             // TODO: This line of code loads data into the 'DS.GIAOVIEN' table. You can move, or remove it, as needed.
@@ -40,9 +44,9 @@ namespace TN_CSDLPT
             // TODO: This line of code loads data into the 'DS.MONHOC' table. You can move, or remove it, as needed.
             this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
             // TODO: This line of code loads data into the 'DS.CT_BAITHI' table. You can move, or remove it, as needed.
-            this.CT_BAITHITableAdapter.Connection.ConnectionString = Program.connStr;
-           // this.CT_BAITHITableAdapter.Fill(this.DS.CT_BAITHI);
-            // TODO: This line of code loads data into the 'dS.BODE' table. You can move, or remove it, as needed.
+            this.cT_BAITHITableAdapter.Connection.ConnectionString = Program.connStr;
+          //  this.cT_BAITHITableAdapter.Fill(this.DS.CT_BAITHI);
+
 
             cmb_TrinhDo.Items.Add("A");
             cmb_TrinhDo.Items.Add("B");
@@ -57,7 +61,7 @@ namespace TN_CSDLPT
 
             if (Program.mNhom == "TRUONG")
             {
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnHuy.Enabled = btnGhi.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnHuy.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = btnRefresh.Enabled = false;
             }
         }
 

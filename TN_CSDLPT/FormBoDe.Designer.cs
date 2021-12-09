@@ -49,6 +49,7 @@
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuy = new DevExpress.XtraBars.BarButtonItem();
             this.btnRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar5 = new DevExpress.XtraBars.Bar();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
@@ -61,7 +62,6 @@
             this.GIAOVIENTableAdapter = new TN_CSDLPT.DSTableAdapters.GIAOVIENTableAdapter();
             this.MONHOCTableAdapter = new TN_CSDLPT.DSTableAdapters.MONHOCTableAdapter();
             this.gcBoDe = new DevExpress.XtraGrid.GridControl();
-            this.bdsGV = new System.Windows.Forms.BindingSource(this.components);
             this.gvBoDe = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCAUHOI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -73,8 +73,7 @@
             this.colD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDAP_AN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAGV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.bdsCTBT = new System.Windows.Forms.BindingSource(this.components);
-            this.CT_BAITHITableAdapter = new TN_CSDLPT.DSTableAdapters.CT_BAITHITableAdapter();
+            this.bdsGV = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCauHoi = new DevExpress.XtraEditors.TextEdit();
             this.txtMaMH = new DevExpress.XtraEditors.TextEdit();
@@ -87,7 +86,8 @@
             this.cmb_DapAn = new System.Windows.Forms.ComboBox();
             this.cmb_TrinhDo = new System.Windows.Forms.ComboBox();
             this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
-            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
+            this.bdsCTBT = new System.Windows.Forms.BindingSource(this.components);
+            this.cT_BAITHITableAdapter = new TN_CSDLPT.DSTableAdapters.CT_BAITHITableAdapter();
             cAUHOILabel = new System.Windows.Forms.Label();
             mAMHLabel = new System.Windows.Forms.Label();
             mAGVLabel = new System.Windows.Forms.Label();
@@ -102,14 +102,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcBoDe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBoDe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCTBT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGV)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauHoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsCTBT)).BeginInit();
             this.SuspendLayout();
             // 
             // cAUHOILabel
@@ -312,6 +312,15 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Caption = "Thoát";
+            this.btnThoat.Id = 7;
+            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
+            this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.LargeImage")));
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
+            // 
             // bar5
             // 
             this.bar5.BarName = "Status bar";
@@ -399,7 +408,7 @@
             // 
             // gcBoDe
             // 
-            this.gcBoDe.DataSource = this.bdsGV;
+            this.gcBoDe.DataSource = this.bdsBoDe;
             this.gcBoDe.Dock = System.Windows.Forms.DockStyle.Top;
             this.gcBoDe.Location = new System.Drawing.Point(0, 30);
             this.gcBoDe.MainView = this.gvBoDe;
@@ -409,11 +418,6 @@
             this.gcBoDe.TabIndex = 5;
             this.gcBoDe.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBoDe});
-            // 
-            // bdsGV
-            // 
-            this.bdsGV.DataMember = "GIAOVIEN";
-            this.bdsGV.DataSource = this.DS;
             // 
             // gvBoDe
             // 
@@ -521,14 +525,10 @@
             this.colMAGV.VisibleIndex = 9;
             this.colMAGV.Width = 94;
             // 
-            // bdsCTBT
+            // bdsGV
             // 
-            this.bdsCTBT.DataMember = "FK_CT_BAITHI_BODE";
-            this.bdsCTBT.DataSource = this.bdsBoDe;
-            // 
-            // CT_BAITHITableAdapter
-            // 
-            this.CT_BAITHITableAdapter.ClearBeforeFill = true;
+            this.bdsGV.DataMember = "GIAOVIEN";
+            this.bdsGV.DataSource = this.DS;
             // 
             // groupBox1
             // 
@@ -661,14 +661,14 @@
             this.bdsMonHoc.DataMember = "MONHOC";
             this.bdsMonHoc.DataSource = this.DS;
             // 
-            // btnThoat
+            // bdsCTBT
             // 
-            this.btnThoat.Caption = "Thoát";
-            this.btnThoat.Id = 7;
-            this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
-            this.btnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.LargeImage")));
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
+            this.bdsCTBT.DataMember = "FK_CT_BAITHI_BODE";
+            this.bdsCTBT.DataSource = this.bdsBoDe;
+            // 
+            // cT_BAITHITableAdapter
+            // 
+            this.cT_BAITHITableAdapter.ClearBeforeFill = true;
             // 
             // FormBoDe
             // 
@@ -688,15 +688,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcBoDe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBoDe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCTBT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGV)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCauHoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaMH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsCTBT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -735,8 +735,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colD;
         private DevExpress.XtraGrid.Columns.GridColumn colDAP_AN;
         private DevExpress.XtraGrid.Columns.GridColumn colMAGV;
-        private DSTableAdapters.CT_BAITHITableAdapter CT_BAITHITableAdapter;
-        private System.Windows.Forms.BindingSource bdsCTBT;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.TextEdit txtCauHoi;
         private DevExpress.XtraEditors.TextEdit txtMaMH;
@@ -753,5 +751,8 @@
         private DSTableAdapters.GIAOVIENTableAdapter GIAOVIENTableAdapter;
         private System.Windows.Forms.BindingSource bdsGV;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
+        private System.Windows.Forms.BindingSource bdsCTBT;
+        private DSTableAdapters.CT_BAITHITableAdapter cT_BAITHITableAdapter;
+        // private System.Windows.Forms.BindingSource bdsCTBT;
     }
 }
