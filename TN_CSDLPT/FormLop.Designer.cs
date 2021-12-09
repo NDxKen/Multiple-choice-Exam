@@ -270,10 +270,11 @@
             this.cmbCoSo.Name = "cmbCoSo";
             this.cmbCoSo.Size = new System.Drawing.Size(121, 24);
             this.cmbCoSo.TabIndex = 0;
+            this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
             // gcLop
             // 
-            this.gcLop.DataSource = this.bdsKhoa;
+            this.gcLop.DataSource = this.bdsLop;
             this.gcLop.Dock = System.Windows.Forms.DockStyle.Top;
             this.gcLop.Location = new System.Drawing.Point(0, 125);
             this.gcLop.MainView = this.gridView2;

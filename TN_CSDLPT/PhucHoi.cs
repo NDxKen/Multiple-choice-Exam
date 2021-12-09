@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.XtraEditors;
 
 namespace TN_CSDLPT
 {
@@ -42,20 +43,20 @@ namespace TN_CSDLPT
             myStack.Push("exec [dbo].[SP_PHUCHOITHEMSV] '" + newMaSV + "'");
         }
 
-        public void PushStack_XoaSV(string maSV, string ho, string ten, string ngaySinh, string diaChi, string maLop)
+        public void PushStack_XoaSV(string maSV, string ho, string ten, string ngaySinh, string diaChi, string passWord, string maLop)
         {
-            myStack.Push("exec [dbo].[SP_PHUCHOIXOASV] '" + maSV + "', N'" + ho + "', N'" + ten + "', '" + ngaySinh + "', N'" + diaChi + "', '" + maLop + "'");
+            myStack.Push("exec [dbo].[SP_PHUCHOIXOASV] '" + maSV + "', N'" + ho + "', N'" + ten + "', '" + ngaySinh + "', N'" + diaChi + "', '" + passWord + "', N'"  + maLop + "'");
         }
 
-        public void Save_OldSV(string oldHo, string oldTen, string oldNgaySinh, string oldDiaChi, string oldMaLop)
+        public void Save_OldSVs(string oldHo, string oldTen, string oldNgaySinh, string oldDiaChi, string oldPassWord , string oldMaLop)
         {
-            DataTruocKhiSua = oldHo + "-" + oldTen + "-" + oldNgaySinh + "-" + oldDiaChi + "-" + oldMaLop;
+            DataTruocKhiSua = oldHo + "-" + oldTen + "-" + oldNgaySinh + "-" + oldDiaChi + "-" +  oldPassWord  + "-" + oldMaLop;
         }
 
         public void PushStack_SuaSV(string MaSV)
         {
             string[] arr = DataTruocKhiSua.Split('-');
-            myStack.Push("exec[dbo].[SP_PHUCHOISUASV] '" + MaSV + "', N'" + arr[0] + "', N'" + arr[1] + "', '" + arr[2] + "', N'" + arr[3] + "', '" + arr[4] + "'");
+            myStack.Push("exec[dbo].[SP_PHUCHOISUASV] '" + MaSV + "', N'" + arr[0] + "', N'" + arr[1] + "', '" + arr[2] + "', N'" + arr[3] + "', '" + arr[4] + "', '"  + arr[5] + "'");
         }
         public string PopStack()
         {
@@ -67,5 +68,6 @@ namespace TN_CSDLPT
             Program.execNonQuery(sql);
             return "success";
         }
+
     }
 }

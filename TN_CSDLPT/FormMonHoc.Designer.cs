@@ -48,9 +48,6 @@
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cmbCoSo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.DS = new TN_CSDLPT.DS();
             this.bdsMonHoc = new System.Windows.Forms.BindingSource(this.components);
             this.MonHocTableAdapter = new TN_CSDLPT.DSTableAdapters.MONHOCTableAdapter();
@@ -71,7 +68,6 @@
             tENMHLabel = new System.Windows.Forms.Label();
             mAMHLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMonHoc)).BeginInit();
@@ -87,7 +83,7 @@
             // tENMHLabel
             // 
             tENMHLabel.AutoSize = true;
-            tENMHLabel.Location = new System.Drawing.Point(208, 79);
+            tENMHLabel.Location = new System.Drawing.Point(202, 81);
             tENMHLabel.Name = "tENMHLabel";
             tENMHLabel.Size = new System.Drawing.Size(95, 17);
             tENMHLabel.TabIndex = 2;
@@ -274,34 +270,6 @@
             this.barButtonItem1.Id = 5;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cmbCoSo);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2051, 145);
-            this.panel1.TabIndex = 9;
-            // 
-            // cmbCoSo
-            // 
-            this.cmbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCoSo.FormattingEnabled = true;
-            this.cmbCoSo.Location = new System.Drawing.Point(146, 33);
-            this.cmbCoSo.Name = "cmbCoSo";
-            this.cmbCoSo.Size = new System.Drawing.Size(267, 24);
-            this.cmbCoSo.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "CƠ SỞ";
-            // 
             // DS
             // 
             this.DS.DataSetName = "DS";
@@ -333,13 +301,13 @@
             // 
             // gcMonHoc
             // 
-            this.gcMonHoc.DataSource = this.bdsBoDe;
+            this.gcMonHoc.DataSource = this.bdsMonHoc;
             this.gcMonHoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcMonHoc.Location = new System.Drawing.Point(0, 175);
+            this.gcMonHoc.Location = new System.Drawing.Point(0, 30);
             this.gcMonHoc.MainView = this.gvMonHoc;
             this.gcMonHoc.MenuManager = this.barManager1;
             this.gcMonHoc.Name = "gcMonHoc";
-            this.gcMonHoc.Size = new System.Drawing.Size(2051, 430);
+            this.gcMonHoc.Size = new System.Drawing.Size(2051, 538);
             this.gcMonHoc.TabIndex = 14;
             this.gcMonHoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMonHoc});
@@ -382,14 +350,16 @@
             this.groupBox1.Controls.Add(mAMHLabel);
             this.groupBox1.Controls.Add(this.txtMaMH);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 605);
+            this.groupBox1.Location = new System.Drawing.Point(0, 568);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(2051, 181);
+            this.groupBox1.Size = new System.Drawing.Size(2051, 218);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
             // txtTenMH
             // 
+            this.txtTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "TENMH", true));
+            this.txtTenMH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsMonHoc, "TENMH", true));
             this.txtTenMH.Location = new System.Drawing.Point(309, 76);
             this.txtTenMH.MenuManager = this.barManager1;
             this.txtTenMH.Name = "txtTenMH";
@@ -398,6 +368,8 @@
             // 
             // txtMaMH
             // 
+            this.txtMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "MAMH", true));
+            this.txtMaMH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsMonHoc, "MAMH", true));
             this.txtMaMH.Location = new System.Drawing.Point(309, 35);
             this.txtMaMH.MenuManager = this.barManager1;
             this.txtMaMH.Name = "txtMaMH";
@@ -433,7 +405,6 @@
             this.ClientSize = new System.Drawing.Size(2051, 806);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gcMonHoc);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControl3);
             this.Controls.Add(this.barDockControl4);
             this.Controls.Add(this.barDockControl2);
@@ -442,8 +413,6 @@
             this.Text = "FormMonHoc";
             this.Load += new System.EventHandler(this.FormMonHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMonHoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMonHoc)).EndInit();
@@ -476,9 +445,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControl3;
         private DevExpress.XtraBars.BarDockControl barDockControl4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cmbCoSo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource bdsMonHoc;
         private DS DS;
         private DSTableAdapters.MONHOCTableAdapter MonHocTableAdapter;
