@@ -34,13 +34,15 @@ namespace TN_CSDLPT
 
         private void FormKhoa_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'DS.LOP' table. You can move, or remove it, as needed.
+          
             DS.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'DS.KHOA' table. You can move, or remove it, as needed.
             this.KHOATableAdapter.Connection.ConnectionString = Program.connStr;
             this.KHOATableAdapter.Fill(this.DS.KHOA);
             // TODO: This line of code loads data into the 'DS.LOP' table. You can move, or remove it, as needed.
-            this.LOPTableAdapter.Connection.ConnectionString = Program.connStr;
-            this.LOPTableAdapter.Fill(this.DS.LOP);
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connStr;
+            this.lOPTableAdapter.Fill(this.DS.LOP);
 
             // TODO: This line of code loads data into the 'DS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
             this.GIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
@@ -51,11 +53,14 @@ namespace TN_CSDLPT
             // TODO: This line of code loads data into the 'DS.GIAOVIEN' table. You can move, or remove it, as needed.
             this.GIAOVIENTableAdapter.Connection.ConnectionString = Program.connStr;
             this.GIAOVIENTableAdapter.Fill(this.DS.GIAOVIEN);
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connStr;
+            this.lOPTableAdapter.Fill(this.DS.LOP);
+
 
             DataTable dt = new DataTable();
             dt = Program.execSqlDataTable("SELECT MACS, TENCS FROM COSO");
             bdsCoSo.DataSource = dt;
-            txtMaCS.Text = ((DataRowView)bdsCoSo[bdsCoSo.Position])["MACS"].ToString();
+            textMaCS.Text = ((DataRowView)bdsCoSo[bdsCoSo.Position])["MACS"].ToString();
 
             cmbCoSo.DataSource = Program.bdsDSPM;
             cmbCoSo.DisplayMember = "TEN_COSO";
@@ -69,6 +74,14 @@ namespace TN_CSDLPT
                 cmbCoSo.Enabled = true;
             else
                 cmbCoSo.Enabled = false;
+            if (Program.mNhom == "COSO")
+            {
+                cmbCoSo.Enabled = false;
+            }
+            else if (Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
+            {
+                subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
+            }
 
             gc2.Enabled = false;
             btnGhi.Enabled = false;
@@ -99,8 +112,8 @@ namespace TN_CSDLPT
                 this.KHOATableAdapter.Connection.ConnectionString = Program.connStr;
                 this.KHOATableAdapter.Fill(this.DS.KHOA);
                 // TODO: This line of code loads data into the 'DS.LOP' table. You can move, or remove it, as needed.
-                this.LOPTableAdapter.Connection.ConnectionString = Program.connStr;
-                this.LOPTableAdapter.Fill(this.DS.LOP);
+                this.lOPTableAdapter.Connection.ConnectionString = Program.connStr;
+                this.lOPTableAdapter.Fill(this.DS.LOP);
 
                 // TODO: This line of code loads data into the 'DS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
                 this.GIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connStr;
@@ -189,13 +202,13 @@ namespace TN_CSDLPT
                     {
                         maLop = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString();
                         bdsLop.RemoveCurrent();
-                        this.LOPTableAdapter.Connection.ConnectionString = Program.connStr;
-                        this.LOPTableAdapter.Update(this.DS.LOP);
+                        this.lOPTableAdapter.Connection.ConnectionString = Program.connStr;
+                        this.lOPTableAdapter.Update(this.DS.LOP);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Lỗi xóa lớp. Hãy xóa lại!\n" + ex.Message, "Lỗi", MessageBoxButtons.OK);
-                        this.LOPTableAdapter.Fill(this.DS.LOP);
+                        this.lOPTableAdapter.Fill(this.DS.LOP);
                         bdsLop.Position = bdsLop.Find("MALOP", maLop);
                         return;
                     }
@@ -221,8 +234,8 @@ namespace TN_CSDLPT
             subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = false;
 
-            txtMaKH.Enabled = txtTenKH.Enabled = txtMaCS.Enabled = true;
-            txtMaLop.Enabled = txtTenLop.Enabled = txtMaKH_Lop.Enabled = true;
+            textMaKhoa.Enabled =  textTenKH.Enabled = textMaCS.Enabled = true;
+            textLop.Enabled = txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
             gcKhoa.Enabled = gcLop.Enabled = true;
             isThemKH = isThemLop = false;
         }
@@ -231,52 +244,52 @@ namespace TN_CSDLPT
         {
             if (isThemKH)
             {
-                if (txtMaKH.Text.Trim().Length == 0)
+                if (textMaKhoa.Text.Trim().Length == 0)
                 {
                     MessageBox.Show("Mã khoa không được trống!", "Lỗi", MessageBoxButtons.OK);
-                    txtMaKH.Focus();
+                    textMaKhoa.Focus();
                     return;
                 }
-                if (txtTenKH.Text.Trim().Length == 0)
+                if ( textTenKH.Text.Trim().Length == 0)
                 {
                     MessageBox.Show("Tên khoa không được trống!", "Lỗi", MessageBoxButtons.OK);
-                    txtTenKH.Focus();
+                     textTenKH.Focus();
                     return;
                 }
-                txtMaCS.Text = ((DataRowView)bdsCoSo[bdsCoSo.Position])["MACS"].ToString();
+                textMaCS.Text = ((DataRowView)bdsCoSo[bdsCoSo.Position])["MACS"].ToString();
                 try
                 {
                     string sql;
                     int ketQua;
                     if (isDangThem)
                     {
-                        sql = "exec [dbo].[SP_TrungMaKH] '" + txtMaKH.Text + "'";
+                        sql = "exec [dbo].[SP_TRUNGMAKHOA] '" + textMaKhoa.Text + "'";
                         ketQua = Program.execNonQuery(sql);
                         //nếu như chạy sp ko thành công
                         if (ketQua == 1)
                         {
-                            txtMaKH.Focus();
+                            textMaKhoa.Focus();
                             return;
                         }
 
-                        sql = "exec [dbo].[SP_TrungTenKH] '" + txtTenKH.Text + "'";
+                        sql = "exec [dbo].[SP_TRUNGTENKHOA] '" +  textTenKH.Text + "'";
                         ketQua = Program.execNonQuery(sql);
                         //nếu như chạy sp ko thành công
                         if (ketQua == 1)
                         {
-                            txtTenKH.Focus();
+                             textTenKH.Focus();
                             return;
                         }
                     }
                     //isDangSua = true
                     else if (isDangSua)
                     {
-                        sql = "exec [dbo].[SP_TrungTenKH] '" + txtTenKH.Text + "'";
+                        sql = "exec [dbo].[SP_TRUNGTENKHOA] '" +  textTenKH.Text + "'";
                         ketQua = Program.execNonQuery(sql);
                         //nếu như chạy sp ko thành công
                         if (ketQua == 1)
                         {
-                            txtTenKH.Focus();
+                             textTenKH.Focus();
                             return;
 
                         }
@@ -291,8 +304,8 @@ namespace TN_CSDLPT
                     subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = true;
                     btnGhi.Enabled = btnHuy.Enabled = false;
 
-                    txtMaKH.Enabled = txtTenKH.Enabled = txtMaCS.Enabled = true;
-                    txtMaLop.Enabled = txtTenLop.Enabled = txtMaKH_Lop.Enabled = true;
+                    textMaKhoa.Enabled =  textTenKH.Enabled = textMaCS.Enabled = true;
+                       textLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
                     gcKhoa.Enabled = gcLop.Enabled = true;
                 }
                 catch (Exception ex)
@@ -302,27 +315,27 @@ namespace TN_CSDLPT
             }
             else if (isThemLop)
             {
-                if (txtMaLop.Text.Trim().Length == 0)
+                if (textLop.Text.Trim().Length == 0)
                 {
                     MessageBox.Show("Mã lớp không được trống!", "Lỗi", MessageBoxButtons.OK);
-                    txtMaLop.Focus();
+                       textLop.Focus();
                     return;
                 }
-                if (txtTenLop.Text.Trim().Length == 0)
+                if ( txtTenLopHoc.Text.Trim().Length == 0)
                 {
                     MessageBox.Show("Tên lớp không được trống!", "Lỗi", MessageBoxButtons.OK);
-                    txtTenLop.Focus();
+                     txtTenLopHoc.Focus();
                     return;
                 }
-                if (txtMaKH_Lop.Text.Trim().Length == 0)
+                if (textMaKhoaLop.Text.Trim().Length == 0)
                 {
                     MessageBox.Show("Mã khoa không được trống!", "Lỗi", MessageBoxButtons.OK);
-                    txtMaKH_Lop.Focus();
+                    textMaKhoaLop.Focus();
                     return;
                 }
                 if (!suaKH)
                 {
-                    txtMaKH_Lop.Text = gvKhoa.GetRowCellValue(gvKhoa.FocusedRowHandle, "MAKH").ToString().Trim();
+                    textMaKhoaLop.Text = gvKhoa.GetRowCellValue(gvKhoa.FocusedRowHandle, "MAKH").ToString().Trim();
                 }
                 try
                 {
@@ -330,33 +343,33 @@ namespace TN_CSDLPT
                     int ketQua;
                     if (isDangThem)
                     {
-                        sql = "exec [dbo].[SP_TrungMaLop] '" + txtMaLop.Text + "'";
+                        sql = "exec [dbo].[SP_TRUNGMALOP] '" + textLop.Text + "'";
                         ketQua = Program.execNonQuery(sql);
                         //nếu như chạy sp ko thành công
                         if (ketQua == 1)
                         {
-                            txtMaLop.Focus();
+                           textLop.Focus();
                             return;
                         }
 
-                        sql = "exec [dbo].[SP_TrungTenLop] '" + txtTenLop.Text + "'";
+                        sql = "exec [dbo].[SP_TRUNGTENLOP] '" +  txtTenLopHoc.Text + "'";
                         ketQua = Program.execNonQuery(sql);
                         //nếu như chạy sp ko thành công
                         if (ketQua == 1)
                         {
-                            txtTenLop.Focus();
+                             txtTenLopHoc.Focus();
                             return;
                         }
                     }
                     //isDangSua = true
                     else if (isDangSua)
                     {
-                        sql = "exec [dbo].[SP_TrungTenLop] '" + txtTenLop.Text + "'";
+                        sql = "exec [dbo].[SP_TRUNGTENLOP] '" +  txtTenLopHoc.Text + "'";
                         ketQua = Program.execNonQuery(sql);
                         //nếu như chạy sp ko thành công
                         if (ketQua == 1)
                         {
-                            txtTenLop.Focus();
+                             txtTenLopHoc.Focus();
                             return;
 
                         }
@@ -364,15 +377,15 @@ namespace TN_CSDLPT
 
                     bdsLop.EndEdit();
                     bdsLop.ResetCurrentItem();
-                    this.LOPTableAdapter.Update(this.DS.LOP);
+                    this.lOPTableAdapter.Update(this.DS.LOP);
                     isThemLop = isDangSua = isDangThem = false;
                     suaKH = false;
                     gc2.Enabled = false;
                     subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = true;
                     btnGhi.Enabled = btnHuy.Enabled = false;
 
-                    txtMaKH.Enabled = txtTenKH.Enabled = txtMaCS.Enabled = true;
-                    txtMaLop.Enabled = txtTenLop.Enabled = txtMaKH_Lop.Enabled = true;
+                    textMaKhoa.Enabled =  textTenKH.Enabled = textMaCS.Enabled = true;
+                    textLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
                     gcKhoa.Enabled = gcLop.Enabled = true;
                 }
                 catch (Exception ex)
@@ -400,13 +413,13 @@ namespace TN_CSDLPT
 
                 isThemKH = isDangSua = true;
                 gc2.Enabled = true;
-                txtMaKH.Focus();
+                textMaKhoa.Focus();
 
-                txtMaKH.Enabled = false;
+                textMaKhoa.Enabled = false;
                 subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
                 btnGhi.Enabled = btnHuy.Enabled = true;
 
-                txtMaLop.Enabled = txtTenLop.Enabled = txtMaKH_Lop.Enabled = false;
+                textLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = false;
                 gcKhoa.Enabled = gcLop.Enabled = false;
             }
             else if (gvLop.IsFocusedView)
@@ -418,14 +431,14 @@ namespace TN_CSDLPT
                 }
                 isThemLop = isDangSua = true;
                 gc2.Enabled = true;
-                txtTenLop.Focus();
+                 txtTenLopHoc.Focus();
                 suaKH = true;
-                txtMaLop.Enabled = false;
-                txtMaKH_Lop.Enabled = true;
+                textLop.Enabled = false;
+                textMaKhoaLop.Enabled = true;
                 subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
                 btnGhi.Enabled = btnHuy.Enabled = true;
 
-                txtMaKH.Enabled = txtTenKH.Enabled = txtMaCS.Enabled = false;
+                textMaKhoa.Enabled = textTenKH.Enabled = textMaCS.Enabled = false;
                 gcKhoa.Enabled = gcLop.Enabled = false;
             }
             gc2.Enabled = true;
@@ -446,8 +459,8 @@ namespace TN_CSDLPT
 
         private void gvKhoa_Click(object sender, EventArgs e)
         {
-            this.LOPTableAdapter.Connection.ConnectionString = Program.connStr;
-            this.LOPTableAdapter.Fill(this.DS.LOP);
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connStr;
+            this.lOPTableAdapter.Fill(this.DS.LOP);
 
             maKH = gvKhoa.GetRowCellValue(gvKhoa.FocusedRowHandle, "MAKH").ToString();
             this.bdsLop.Filter = "MAKH = '" + maKH + "'";
@@ -468,13 +481,13 @@ namespace TN_CSDLPT
             isThemKH = isDangThem = true;
             gc2.Enabled = true;
             bdsKhoa.AddNew();
-            txtMaKH.Focus();
-            txtMaCS.Text = ((DataRowView)bdsCoSo[bdsCoSo.Position])["MACS"].ToString();
-            txtMaKH.Enabled = true;
+            textMaKhoa.Focus();
+            textMaCS.Text = ((DataRowView)bdsCoSo[bdsCoSo.Position])["MACS"].ToString();
+            textMaKhoa.Enabled = true;
             subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true;
 
-            txtMaLop.Enabled = txtTenLop.Enabled = txtMaKH_Lop.Enabled = false;
+            textLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = false;
             gcKhoa.Enabled = gcLop.Enabled = false;
 
         }
@@ -489,14 +502,14 @@ namespace TN_CSDLPT
             isThemLop = isDangThem = true;
             gc2.Enabled = true;
             bdsLop.AddNew();
-            txtMaLop.Focus();
+            textLop.Focus();
 
-            txtMaKH_Lop.Text = gvKhoa.GetRowCellValue(gvKhoa.FocusedRowHandle, "MAKH").ToString().Trim();
-            txtMaLop.Enabled = true;
+            textMaKhoaLop.Text = gvKhoa.GetRowCellValue(gvKhoa.FocusedRowHandle, "MAKH").ToString().Trim();
+            textLop.Enabled = true;
             subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true;
 
-            txtMaKH.Enabled = txtTenKH.Enabled = txtMaCS.Enabled = false;
+            textMaKhoa.Enabled =  textTenKH.Enabled = textMaCS.Enabled = false;
             gcKhoa.Enabled = gcLop.Enabled = false;
         }
 
@@ -511,8 +524,8 @@ namespace TN_CSDLPT
             this.KHOATableAdapter.Connection.ConnectionString = Program.connStr;
             this.KHOATableAdapter.Fill(this.DS.KHOA);
             // TODO: This line of code loads data into the 'DS.LOP' table. You can move, or remove it, as needed.
-            this.LOPTableAdapter.Connection.ConnectionString = Program.connStr;
-            this.LOPTableAdapter.Fill(this.DS.LOP);
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connStr;
+            this.lOPTableAdapter.Fill(this.DS.LOP);
         }
     }
 }

@@ -83,7 +83,7 @@
             queryParameter1.ValueInfo = "1753-01-01";
             queryParameter2.Name = "@NGAY2";
             queryParameter2.Type = typeof(System.DateTime);
-            queryParameter2.ValueInfo = "1753-01-01";
+            queryParameter2.ValueInfo = "1753-01-02";
             storedProcQuery1.Parameters.Add(queryParameter1);
             storedProcQuery1.Parameters.Add(queryParameter2);
             storedProcQuery1.StoredProcName = "SP_DSDKTHI";

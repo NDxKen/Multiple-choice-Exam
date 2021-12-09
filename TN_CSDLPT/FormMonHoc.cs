@@ -48,7 +48,7 @@ namespace TN_CSDLPT
 
             if (Program.mNhom != "COSO")
             {
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = btnGhi.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = btnGhi.Enabled = btnRefresh.Enabled = false;
             }
         }
 

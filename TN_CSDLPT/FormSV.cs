@@ -61,6 +61,15 @@ namespace TN_CSDLPT
                 cmbCoSo.Enabled = false;
       //      groupControl2.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = false;
+
+            if (Program.mNhom == "COSO")
+            {
+                cmbCoSo.Enabled = false;
+            }
+            else if (Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
+            {
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
+            }
             if (bdsSV.Count == 0)
                 btnXoa.Enabled = false;
             btnHuy.Enabled = false;
@@ -78,7 +87,7 @@ namespace TN_CSDLPT
             bdsSV.AddNew();
             txtMaSV.Focus();
             txtMaLop.Text = maLop;
-            dtNgaySinh.EditValue = "";
+            dtpNgaySinh.EditValue = "";
 
             txtMaSV.Enabled = true;
       //      groupControl2.Enabled = true;
@@ -174,10 +183,10 @@ namespace TN_CSDLPT
                 txtTen.Focus();
                 return;
             }
-            if (dtNgaySinh.Text.Trim().Length == 0)
+            if (dtpNgaySinh.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Ngày sinh không được trống!", "Lỗi", MessageBoxButtons.OK);
-                dtNgaySinh.Focus();
+                dtpNgaySinh.Focus();
                 return;
             }
             if (txtMaLop.Text.Trim().Length == 0)
@@ -194,7 +203,7 @@ namespace TN_CSDLPT
                 int ketQua;
                 if (isDangThem)
                 {
-                    sql = "exec [dbo].[SP_TrungMaSV] '" + txtMaSV.Text + "'";
+                    sql = "exec [dbo].[SP_TRUNGMASV] '" + txtMaSV.Text + "'";
                     ketQua = Program.execNonQuery(sql);
                     //nếu như chạy sp ko thành công
                     if (ketQua == 1)
@@ -253,7 +262,7 @@ namespace TN_CSDLPT
                 {
                     try
                     {
-                        phucHoi.PushStack_XoaSV(txtMaSV.Text, txtHo.Text, txtTen.Text, dtNgaySinh.Text, txtDiaChi.Text, maLop);
+                        phucHoi.PushStack_XoaSV(txtMaSV.Text, txtHo.Text, txtTen.Text, dtpNgaySinh.Text, txtDiaChi.Text, txtPassWord.Text, maLop);
                         maSV = int.Parse(((DataRowView)bdsSV[bdsSV.Position])["MASV"].ToString());
                         bdsSV.RemoveCurrent();
                         this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connStr;
@@ -316,13 +325,14 @@ namespace TN_CSDLPT
         {
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = btnRefresh.Enabled = false;
                 MessageBox.Show("Bạn không có quyền này!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
             isDangSua = true;
             suaLop = true;
-            phucHoi.Save_OldSV(txtHo.Text, txtTen.Text, dtNgaySinh.Text, txtDiaChi.Text, cmbMaLop.SelectedValue.ToString());
-       //     groupControl2.Enabled = true;
+            phucHoi.Save_OldSVs(txtHo.Text, txtTen.Text, dtpNgaySinh.Text, txtDiaChi.Text, txtPassWord.Text, cmbMaLop.SelectedValue.ToString());
+            //     groupControl2.Enabled = true;
             txtMaSV.Enabled = false;
             txtMaLop.Enabled = true;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
