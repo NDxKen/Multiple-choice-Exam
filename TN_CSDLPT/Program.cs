@@ -16,7 +16,7 @@ namespace TN_CSDLPT
         /// </summary>
         public static SqlConnection conn = new SqlConnection();
         public static String connStr = "";
-        public static String connstr_publisher = "Data Source=LAPTOP-1T0MKR0F;Initial Catalog=TN_CSDLPT;Integrated Security=true";
+        public static String connstr_publisher = @"Data Source=LAPTOP-1T0MKR0F;Initial Catalog=TN_CSDLPT;Integrated Security=true";
         public static SqlDataReader myReader;
 
         public static String serverName = "";
@@ -34,6 +34,11 @@ namespace TN_CSDLPT
         public static String svMaLop = "";
         public static String svTenLop = "";
         public static int mCoSo = 0;
+
+
+        // lưu thông tin SV
+        public static string svNgaySinh;
+        public static string svDiaChi;
 
         public static BindingSource bdsDSPM = new BindingSource();
         public static FormMain formMain;
@@ -114,6 +119,11 @@ namespace TN_CSDLPT
                 conn.Close();
                 return ex.State; // trang thai lỗi gởi từ RAISERROR trong SQL Server qua (mã số thứ 3)
             }
+        }
+        public static string FormatDate(string date)
+        {
+            string[] t = date.Split('/');
+            return t[1] + "/" + t[0] + "/" + t[2];
         }
 
         [STAThread]        

@@ -14,6 +14,11 @@ namespace TN_CSDLPT
         public FormMain()
         {
             InitializeComponent();
+            if(Program.mNhom == "GIANGVIEN")
+            {
+                btnKhoaLop.Enabled = btnSinhVien.Enabled = btnMonHoc.Enabled = btnDSDK.Enabled
+                    = btnBangDiem.Enabled = btnCreateAccount.Enabled = btnGV.Enabled = false;
+            }
         }
 
         private Form checkExists(Type ftype)
@@ -39,7 +44,58 @@ namespace TN_CSDLPT
                 f.MdiParent = this;
                 f.Show();
             }
-        }     
+        }
+        private void btnSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            Form frm = this.checkExists(typeof(FormSV));
+            if (frm != null) frm.Activate();
+
+            else
+            {
+                Form f = new FormSV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnKhoaLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(FormKhoa));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FormKhoa f = new FormKhoa();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+        private void btnMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            Form frm = this.checkExists(typeof(FormMonHoc));
+            if (frm != null) frm.Activate();
+
+            else
+            {
+                FormMonHoc f = new FormMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+        private void btnBoDe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            Form frm = this.checkExists(typeof(FormBoDe));
+            if (frm != null) frm.Activate();
+
+            else
+            {
+                FormBoDe f = new FormBoDe();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
 
         private void btnLogout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -79,7 +135,7 @@ namespace TN_CSDLPT
 
         private void btnXemKetQua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = checkExists(typeof(FormXemKetQua));
+            Form frm = this.checkExists(typeof(FormXemKetQua));
             if(frm != null)
             {
                 frm.Activate();
@@ -93,7 +149,7 @@ namespace TN_CSDLPT
 
         private void btnCreateAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = checkExists(typeof(FormTaoTaiKhoan));
+            Form frm = this.checkExists(typeof(FormTaoTaiKhoan));
             if (frm != null) frm.Activate();
             else
             {
@@ -105,7 +161,7 @@ namespace TN_CSDLPT
 
         private void btnThiThu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = checkExists(typeof(FormChonMonThi));
+            Form frm = this.checkExists(typeof(FormChonMonThi));
             if (frm != null) frm.Activate();
             else
             {
@@ -114,5 +170,34 @@ namespace TN_CSDLPT
                 f.Show();
             }
         }
+      
+        private void btnBangDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+            Form frm = this.checkExists(typeof(FormXEMBANGDIEM));
+            if (frm != null) frm.Activate();
+
+            else
+            {
+                FormXEMBANGDIEM f = new FormXEMBANGDIEM();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDSDK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.checkExists(typeof(FormDSDKTHI));
+            if (frm != null) frm.Activate();
+
+            else
+            {
+                FormDSDKTHI f = new FormDSDKTHI();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        
     }
 }
