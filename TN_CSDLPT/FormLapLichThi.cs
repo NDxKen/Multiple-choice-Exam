@@ -62,7 +62,7 @@ namespace TN_CSDLPT
             }
             else if (Program.mNhom == "TRUONG" || Program.mNhom == "GIANGVIEN")
             {
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
             }
         }
 
@@ -169,7 +169,7 @@ namespace TN_CSDLPT
                 MessageBox.Show("Không có lịch để xóa", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
-            String SP_CHECKXOALICHDATHI = "EXEC SP_CHECKXOALICHDATHI '" + txtMaLop.Text + "','" + txtMaMH.Text + "','" + cbLanThi + "'";
+            String SP_CHECKXOALICHDATHI = "EXEC SP_CHECKXOALICHDATHI '" + txtMaLop.Text + "','" + txtMaMH.Text + "','" + cbLanThi.Text + "'";
             if (Program.execNonQuery(SP_CHECKXOALICHDATHI) == 1) return;
             if (MessageBox.Show("Bạn có thực sự muốn xóa?", "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {

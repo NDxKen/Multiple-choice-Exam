@@ -16,8 +16,8 @@ namespace TN_CSDLPT
             InitializeComponent();
             if(Program.mNhom == "GIANGVIEN")
             {
-                btnKhoaLop.Enabled = btnSinhVien.Enabled = btnMonHoc.Enabled = btnDSDK.Enabled
-                    = btnBangDiem.Enabled = btnCreateAccount.Enabled = btnGV.Enabled = false;
+                btnKhoaLop.Enabled = btnSinhVien.Enabled = btnMonHoc.Enabled = btnLapLichThi.Enabled
+                     = btnCreateAccount.Enabled = btnGV.Enabled = false;
             }
         }
 

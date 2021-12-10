@@ -80,6 +80,7 @@
             this.bdsGV = new System.Windows.Forms.BindingSource(this.components);
             this.gc2 = new DevExpress.XtraEditors.GroupControl();
             this.txtMaKH_Lop = new DevExpress.XtraEditors.TextEdit();
+            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaCS = new DevExpress.XtraEditors.TextEdit();
@@ -91,7 +92,6 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.textMaKhoaLop = new DevExpress.XtraEditors.TextEdit();
-            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.txtTenLopHoc = new DevExpress.XtraEditors.TextEdit();
             this.textLop = new DevExpress.XtraEditors.TextEdit();
             this.textMaCS = new DevExpress.XtraEditors.TextEdit();
@@ -149,6 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc2)).BeginInit();
             this.gc2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKH_Lop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCS.Properties)).BeginInit();
@@ -163,7 +164,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textMaKhoaLop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLopHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textMaCS.Properties)).BeginInit();
@@ -643,6 +643,11 @@
             this.txtMaKH_Lop.Size = new System.Drawing.Size(125, 22);
             this.txtMaKH_Lop.TabIndex = 11;
             // 
+            // bdsLop
+            // 
+            this.bdsLop.DataMember = "LOP";
+            this.bdsLop.DataSource = this.DS;
+            // 
             // txtTenLop
             // 
             this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "MALOP", true));
@@ -734,11 +739,6 @@
             this.textMaKhoaLop.Size = new System.Drawing.Size(125, 22);
             this.textMaKhoaLop.TabIndex = 11;
             // 
-            // bdsLop
-            // 
-            this.bdsLop.DataMember = "LOP";
-            this.bdsLop.DataSource = this.DS;
-            // 
             // txtTenLopHoc
             // 
             this.txtTenLopHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "TENLOP", true));
@@ -806,6 +806,7 @@
             this.gridColumn3});
             this.gv_Lop.GridControl = this.gc_Lop;
             this.gv_Lop.Name = "gv_Lop";
+            this.gv_Lop.OptionsBehavior.Editable = false;
             // 
             // gridColumn1
             // 
@@ -862,6 +863,7 @@
             this.colMACS});
             this.gvKhoa.GridControl = this.gcKhoa;
             this.gvKhoa.Name = "gvKhoa";
+            this.gvKhoa.OptionsBehavior.Editable = false;
             this.gvKhoa.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gvKhoa_SelectionChanged);
             this.gvKhoa.Click += new System.EventHandler(this.gvKhoa_Click);
             // 
@@ -1069,6 +1071,7 @@
             this.gc2.ResumeLayout(false);
             this.gc2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKH_Lop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCS.Properties)).EndInit();
@@ -1084,7 +1087,6 @@
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textMaKhoaLop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLopHoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textMaCS.Properties)).EndInit();

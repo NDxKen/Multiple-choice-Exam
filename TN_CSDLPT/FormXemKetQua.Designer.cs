@@ -64,6 +64,7 @@ namespace TN_CSDLPT
             this.tableAdapterManager = new TN_CSDLPT.DSTableAdapters.TableAdapterManager();
             this.MONHOCTableAdapter = new TN_CSDLPT.DSTableAdapters.MONHOCTableAdapter();
             this.SINHVIENTableAdapter = new TN_CSDLPT.DSTableAdapters.SINHVIENTableAdapter();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -147,7 +148,7 @@ namespace TN_CSDLPT
             // 
             // btnPreview
             // 
-            this.btnPreview.Location = new System.Drawing.Point(293, 258);
+            this.btnPreview.Location = new System.Drawing.Point(182, 259);
             this.btnPreview.Margin = new System.Windows.Forms.Padding(5);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(222, 60);
@@ -193,6 +194,7 @@ namespace TN_CSDLPT
             // 
             this.panelControl3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.btnClose);
             this.panelControl3.Controls.Add(this.cbCoSo);
             this.panelControl3.Controls.Add(this.cbLanThi);
             this.panelControl3.Controls.Add(this.txtHoTen);
@@ -436,6 +438,16 @@ namespace TN_CSDLPT
             // 
             this.SINHVIENTableAdapter.ClearBeforeFill = true;
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(434, 259);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(222, 60);
+            this.btnClose.TabIndex = 17;
+            this.btnClose.Text = "Thoát";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // FormXemKetQua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -502,5 +514,6 @@ namespace TN_CSDLPT
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private System.Windows.Forms.ComboBox cbLanThi;
         private System.Windows.Forms.ComboBox cbCoSo;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
     }
 }
