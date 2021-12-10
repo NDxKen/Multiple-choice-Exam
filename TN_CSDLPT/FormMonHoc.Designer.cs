@@ -83,18 +83,18 @@
             // tENMHLabel
             // 
             tENMHLabel.AutoSize = true;
-            tENMHLabel.Location = new System.Drawing.Point(202, 81);
+            tENMHLabel.Location = new System.Drawing.Point(177, 81);
             tENMHLabel.Name = "tENMHLabel";
-            tENMHLabel.Size = new System.Drawing.Size(95, 17);
+            tENMHLabel.Size = new System.Drawing.Size(95, 16);
             tENMHLabel.TabIndex = 2;
             tENMHLabel.Text = "Tên môn học:";
             // 
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
-            mAMHLabel.Location = new System.Drawing.Point(208, 38);
+            mAMHLabel.Location = new System.Drawing.Point(182, 38);
             mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(89, 17);
+            mAMHLabel.Size = new System.Drawing.Size(89, 16);
             mAMHLabel.TabIndex = 0;
             mAMHLabel.Text = "Mã môn học:";
             // 
@@ -236,7 +236,7 @@
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager1;
             this.barDockControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControl1.Size = new System.Drawing.Size(2051, 30);
+            this.barDockControl1.Size = new System.Drawing.Size(1795, 30);
             // 
             // barDockControl2
             // 
@@ -245,7 +245,7 @@
             this.barDockControl2.Location = new System.Drawing.Point(0, 786);
             this.barDockControl2.Manager = this.barManager1;
             this.barDockControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.barDockControl2.Size = new System.Drawing.Size(2051, 20);
+            this.barDockControl2.Size = new System.Drawing.Size(1795, 20);
             // 
             // barDockControl3
             // 
@@ -260,7 +260,7 @@
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(2051, 30);
+            this.barDockControl4.Location = new System.Drawing.Point(1795, 30);
             this.barDockControl4.Manager = this.barManager1;
             this.barDockControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.barDockControl4.Size = new System.Drawing.Size(0, 756);
@@ -307,7 +307,7 @@
             this.gcMonHoc.MainView = this.gvMonHoc;
             this.gcMonHoc.MenuManager = this.barManager1;
             this.gcMonHoc.Name = "gcMonHoc";
-            this.gcMonHoc.Size = new System.Drawing.Size(2051, 538);
+            this.gcMonHoc.Size = new System.Drawing.Size(1795, 538);
             this.gcMonHoc.TabIndex = 14;
             this.gcMonHoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMonHoc});
@@ -319,24 +319,25 @@
             this.colTENMH});
             this.gvMonHoc.GridControl = this.gcMonHoc;
             this.gvMonHoc.Name = "gvMonHoc";
+            this.gvMonHoc.OptionsBehavior.Editable = false;
             // 
             // colMAMH
             // 
             this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 25;
+            this.colMAMH.MinWidth = 22;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 0;
-            this.colMAMH.Width = 94;
+            this.colMAMH.Width = 84;
             // 
             // colTENMH
             // 
             this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 25;
+            this.colTENMH.MinWidth = 22;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 94;
+            this.colTENMH.Width = 82;
             // 
             // bdsBoDe
             // 
@@ -352,7 +353,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 568);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(2051, 218);
+            this.groupBox1.Size = new System.Drawing.Size(1795, 218);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
@@ -360,20 +361,20 @@
             // 
             this.txtTenMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "TENMH", true));
             this.txtTenMH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsMonHoc, "TENMH", true));
-            this.txtTenMH.Location = new System.Drawing.Point(309, 76);
+            this.txtTenMH.Location = new System.Drawing.Point(270, 76);
             this.txtTenMH.MenuManager = this.barManager1;
             this.txtTenMH.Name = "txtTenMH";
-            this.txtTenMH.Size = new System.Drawing.Size(254, 22);
+            this.txtTenMH.Size = new System.Drawing.Size(222, 22);
             this.txtTenMH.TabIndex = 3;
             // 
             // txtMaMH
             // 
             this.txtMaMH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsMonHoc, "MAMH", true));
             this.txtMaMH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsMonHoc, "MAMH", true));
-            this.txtMaMH.Location = new System.Drawing.Point(309, 35);
+            this.txtMaMH.Location = new System.Drawing.Point(270, 35);
             this.txtMaMH.MenuManager = this.barManager1;
             this.txtMaMH.Name = "txtMaMH";
-            this.txtMaMH.Size = new System.Drawing.Size(254, 22);
+            this.txtMaMH.Size = new System.Drawing.Size(222, 22);
             this.txtMaMH.TabIndex = 1;
             // 
             // bds_GVDK
@@ -400,9 +401,9 @@
             // 
             // FormMonHoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2051, 806);
+            this.ClientSize = new System.Drawing.Size(1795, 806);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gcMonHoc);
             this.Controls.Add(this.barDockControl3);

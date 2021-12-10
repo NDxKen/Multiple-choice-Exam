@@ -37,8 +37,8 @@
             System.Windows.Forms.Label hOLabel;
             System.Windows.Forms.Label mASVLabel;
             System.Windows.Forms.Label label2;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSV));
             System.Windows.Forms.Label label3;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSV));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -180,6 +180,15 @@
             label2.Size = new System.Drawing.Size(70, 17);
             label2.TabIndex = 14;
             label2.Text = "PassWord";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(318, 139);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(50, 17);
+            label3.TabIndex = 15;
+            label3.Text = "Địa Chỉ";
             // 
             // barManager1
             // 
@@ -452,6 +461,7 @@
             this.colMALOP});
             this.gridView1.GridControl = this.gcSinhVien;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // colMASV
             // 
@@ -612,15 +622,6 @@
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(125, 22);
             this.txtMaSV.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(318, 139);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(50, 17);
-            label3.TabIndex = 15;
-            label3.Text = "Địa Chỉ";
             // 
             // FormSV
             // 
