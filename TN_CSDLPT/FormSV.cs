@@ -59,7 +59,7 @@ namespace TN_CSDLPT
                 cmbCoSo.Enabled = true;
             else
                 cmbCoSo.Enabled = false;
-      //      groupControl2.Enabled = false;
+           groupControl2.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = false;
 
             if (Program.mNhom == "COSO")
@@ -77,6 +77,7 @@ namespace TN_CSDLPT
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl2.Enabled = true;
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
                 MessageBox.Show("Bạn không có quyền này!", "Thông báo", MessageBoxButtons.OK);
@@ -141,9 +142,9 @@ namespace TN_CSDLPT
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bdsSV.CancelEdit();
-            //this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            //this.sINHVIENTableAdapter.Fill(this.DS.SINHVIEN);
-        //    groupControl2.Enabled = false;
+            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connStr;
+            this.sINHVIENTableAdapter.Fill(this.DS.SINHVIEN);
+            groupControl2.Enabled = false;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = false;
             gcSinhVien.Enabled = true;
@@ -165,6 +166,7 @@ namespace TN_CSDLPT
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl2.Enabled = true;
             if (txtMaSV.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Mã sinh viên không được trống!", "Lỗi", MessageBoxButtons.OK);
@@ -323,6 +325,7 @@ namespace TN_CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl2.Enabled = true;
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
                 btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = btnHuy.Enabled = btnRefresh.Enabled = false;
@@ -332,7 +335,7 @@ namespace TN_CSDLPT
             isDangSua = true;
             suaLop = true;
             phucHoi.Save_OldSVs(txtHo.Text, txtTen.Text, dtpNgaySinh.Text, txtDiaChi.Text, txtPassWord.Text, cmbMaLop.SelectedValue.ToString());
-            //     groupControl2.Enabled = true;
+           
             txtMaSV.Enabled = false;
             txtMaLop.Enabled = true;
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;

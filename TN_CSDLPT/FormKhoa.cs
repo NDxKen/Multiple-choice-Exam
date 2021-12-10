@@ -86,6 +86,7 @@ namespace TN_CSDLPT
             gc2.Enabled = false;
             btnGhi.Enabled = false;
             btnHuy.Enabled = false;
+            groupControl2.Enabled = false;
         }
 
         private void cmbCoSo_SelectedIndexChanged(object sender, EventArgs e)
@@ -224,8 +225,8 @@ namespace TN_CSDLPT
             bdsKhoa.CancelEdit();
             bdsLop.CancelEdit();
 
-            //this.KHOATableAdapter.Connection.ConnectionString = Program.connStr;
-            //this.KHOATableAdapter.Fill(this.DS.KHOA);
+            this.KHOATableAdapter.Connection.ConnectionString = Program.connStr;
+            this.KHOATableAdapter.Fill(this.DS.KHOA);
 
             //this.LOPTableAdapter.Connection.ConnectionString = Program.connStr;
             //this.LOPTableAdapter.Fill(this.DS.LOP);
@@ -235,13 +236,14 @@ namespace TN_CSDLPT
             btnGhi.Enabled = btnHuy.Enabled = false;
 
             textMaKhoa.Enabled =  textTenKH.Enabled = textMaCS.Enabled = true;
-            textLop.Enabled = txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
+            txtMaLop.Enabled = txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
             gcKhoa.Enabled = gcLop.Enabled = true;
             isThemKH = isThemLop = false;
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl2.Enabled = true;
             if (isThemKH)
             {
                 if (textMaKhoa.Text.Trim().Length == 0)
@@ -305,7 +307,7 @@ namespace TN_CSDLPT
                     btnGhi.Enabled = btnHuy.Enabled = false;
 
                     textMaKhoa.Enabled =  textTenKH.Enabled = textMaCS.Enabled = true;
-                       textLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
+                       txtMaLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
                     gcKhoa.Enabled = gcLop.Enabled = true;
                 }
                 catch (Exception ex)
@@ -315,10 +317,10 @@ namespace TN_CSDLPT
             }
             else if (isThemLop)
             {
-                if (textLop.Text.Trim().Length == 0)
+                if (txtMaLop.Text.Trim().Length == 0)
                 {
                     MessageBox.Show("Mã lớp không được trống!", "Lỗi", MessageBoxButtons.OK);
-                       textLop.Focus();
+                       txtMaLop.Focus();
                     return;
                 }
                 if ( txtTenLopHoc.Text.Trim().Length == 0)
@@ -343,12 +345,12 @@ namespace TN_CSDLPT
                     int ketQua;
                     if (isDangThem)
                     {
-                        sql = "exec [dbo].[SP_TRUNGMALOP] '" + textLop.Text + "'";
+                        sql = "exec [dbo].[SP_TRUNGMALOP] '" + txtMaLop.Text + "'";
                         ketQua = Program.execNonQuery(sql);
                         //nếu như chạy sp ko thành công
                         if (ketQua == 1)
                         {
-                           textLop.Focus();
+                           txtMaLop.Focus();
                             return;
                         }
 
@@ -385,7 +387,7 @@ namespace TN_CSDLPT
                     btnGhi.Enabled = btnHuy.Enabled = false;
 
                     textMaKhoa.Enabled =  textTenKH.Enabled = textMaCS.Enabled = true;
-                    textLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
+                    txtMaLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = true;
                     gcKhoa.Enabled = gcLop.Enabled = true;
                 }
                 catch (Exception ex)
@@ -398,6 +400,7 @@ namespace TN_CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl2.Enabled = true;
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
                 MessageBox.Show("Bạn không có quyền này!", "Thông báo", MessageBoxButtons.OK);
@@ -419,7 +422,7 @@ namespace TN_CSDLPT
                 subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
                 btnGhi.Enabled = btnHuy.Enabled = true;
 
-                textLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = false;
+                txtMaLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = false;
                 gcKhoa.Enabled = gcLop.Enabled = false;
             }
             else if (gvLop.IsFocusedView)
@@ -433,7 +436,7 @@ namespace TN_CSDLPT
                 gc2.Enabled = true;
                  txtTenLopHoc.Focus();
                 suaKH = true;
-                textLop.Enabled = false;
+                txtMaLop.Enabled = false;
                 textMaKhoaLop.Enabled = true;
                 subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
                 btnGhi.Enabled = btnHuy.Enabled = true;
@@ -473,6 +476,7 @@ namespace TN_CSDLPT
 
         private void btnAddKhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl2.Enabled = true;
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
                 MessageBox.Show("Bạn không có quyền này!", "Thông báo", MessageBoxButtons.OK);
@@ -487,13 +491,14 @@ namespace TN_CSDLPT
             subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true;
 
-            textLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = false;
+            txtMaLop.Enabled =  txtTenLopHoc.Enabled = textMaKhoaLop.Enabled = false;
             gcKhoa.Enabled = gcLop.Enabled = false;
 
         }
 
         private void btnAddLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            groupControl2.Enabled = true;
             if (Program.mNhom == "TRUONG" || Program.mNhom ==  "GIANGVIEN")
             {
                 MessageBox.Show("Bạn không có quyền này!", "Thông báo", MessageBoxButtons.OK);
@@ -502,10 +507,10 @@ namespace TN_CSDLPT
             isThemLop = isDangThem = true;
             gc2.Enabled = true;
             bdsLop.AddNew();
-            textLop.Focus();
+            txtMaLop.Focus();
 
             textMaKhoaLop.Text = gvKhoa.GetRowCellValue(gvKhoa.FocusedRowHandle, "MAKH").ToString().Trim();
-            textLop.Enabled = true;
+            txtMaLop.Enabled = true;
             subThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnRefresh.Enabled = false;
             btnGhi.Enabled = btnHuy.Enabled = true;
 

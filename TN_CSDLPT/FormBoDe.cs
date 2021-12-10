@@ -61,7 +61,7 @@ namespace TN_CSDLPT
 
             if (Program.mNhom == "TRUONG")
             {
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnHuy.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = btnRefresh.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnHuy.Enabled = btnGhi.Enabled  = btnRefresh.Enabled = false;
             }
         }
 
@@ -133,7 +133,7 @@ namespace TN_CSDLPT
             gcBoDe.Enabled = false;
             groupBox1.Enabled = true;
             btnGhi.Enabled = btnHuy.Enabled = true;
-            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled =  false;
+            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled  =  false;
         }
 
         private void btnHuy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -148,7 +148,7 @@ namespace TN_CSDLPT
                 isDangThem = isDangSua = false;
                 gcBoDe.Enabled = true;
                 groupBox1.Enabled = false;
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled  = true;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled   = true;
                 btnGhi.Enabled = btnHuy.Enabled = false;
             }
             catch (Exception ex)
@@ -247,7 +247,7 @@ namespace TN_CSDLPT
 
                 gcBoDe.Enabled = true;
                 groupBox1.Enabled = false;
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = true;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled  = true;
                 btnGhi.Enabled = btnHuy.Enabled = false;
             }
             catch (Exception ex)
@@ -258,7 +258,18 @@ namespace TN_CSDLPT
             MessageBox.Show("Thao tác thành công!", "Thông báo", MessageBoxButtons.OK);
         }
 
-       
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.BODETableAdapter.Connection.ConnectionString = Program.connStr;
+            this.BODETableAdapter.Fill(this.DS.BODE);
+            // TODO: This line of code loads data into the 'DS.GIAOVIEN' table. You can move, or remove it, as needed.
+            this.GIAOVIENTableAdapter.Fill(this.DS.GIAOVIEN);
+            // TODO: This line of code loads data into the 'DS.MONHOC' table. You can move, or remove it, as needed.
+            this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
+            // TODO: This line of code loads data into the 'DS.CT_BAITHI' table. You can move, or remove it, as needed.
+            this.cT_BAITHITableAdapter.Connection.ConnectionString = Program.connStr;
+        }
+        
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -277,7 +288,7 @@ namespace TN_CSDLPT
                 txtNoiDung.Focus();
 
                 btnGhi.Enabled = btnHuy.Enabled = true;
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled  = false;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled   = false;
             }
             catch (Exception ex)
             {
