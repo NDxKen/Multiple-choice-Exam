@@ -39,7 +39,7 @@ namespace TN_CSDLPT
             cbCoSo.DataSource = Program.bdsDSPM;
             cbCoSo.DisplayMember = "TEN_COSO";
             cbCoSo.ValueMember = "TEN_SERVER";
-            cbCoSo.SelectedIndex = 0;
+            cbCoSo.SelectedIndex = Program.mCoSo;
 
             if (Program.mNhom == "COSO")
                 cbCoSo.Enabled = false;
@@ -66,6 +66,9 @@ namespace TN_CSDLPT
             // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connStr;
             this.SINHVIENTableAdapter.Fill(this.DS.SINHVIEN);
+
+            txtHoTen.Text = "";
+            txtMonThi.Text = "";
         }
 
         private void btnLop_Click(object sender, EventArgs e)
@@ -130,6 +133,11 @@ namespace TN_CSDLPT
         private void gcSinhVien_Click(object sender, EventArgs e)
         {
             txtHoTen.Text = gvSinhVien.GetRowCellValue(gvSinhVien.FocusedRowHandle, "HO").ToString() + " " + gvSinhVien.GetRowCellValue(gvSinhVien.FocusedRowHandle, "TEN").ToString();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void gcMonHoc_Click(object sender, EventArgs e)

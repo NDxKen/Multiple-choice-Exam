@@ -50,17 +50,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCoSo = new System.Windows.Forms.ComboBox();
             this.gcLop = new DevExpress.XtraGrid.GridControl();
-            this.bdsKhoa = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new TN_CSDLPT.DS();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bdsKhoa = new System.Windows.Forms.BindingSource(this.components);
             this.gcEdit = new DevExpress.XtraEditors.GroupControl();
             this.cmbMaKhoa = new System.Windows.Forms.ComboBox();
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
-            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.LOPTableAdapter = new TN_CSDLPT.DSTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new TN_CSDLPT.DSTableAdapters.TableAdapterManager();
             this.KHOATableAdapter = new TN_CSDLPT.DSTableAdapters.KHOATableAdapter();
@@ -71,20 +71,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcCoSo)).BeginInit();
             this.gcCoSo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcEdit)).BeginInit();
             this.gcEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             this.SuspendLayout();
             // 
             // tENLOPLabel
             // 
             tENLOPLabel.AutoSize = true;
-            tENLOPLabel.Location = new System.Drawing.Point(459, 34);
+            tENLOPLabel.Location = new System.Drawing.Point(402, 34);
             tENLOPLabel.Name = "tENLOPLabel";
             tENLOPLabel.Size = new System.Drawing.Size(63, 17);
             tENLOPLabel.TabIndex = 4;
@@ -93,7 +93,7 @@
             // mALOPLabel
             // 
             mALOPLabel.AutoSize = true;
-            mALOPLabel.Location = new System.Drawing.Point(226, 34);
+            mALOPLabel.Location = new System.Drawing.Point(198, 34);
             mALOPLabel.Name = "mALOPLabel";
             mALOPLabel.Size = new System.Drawing.Size(56, 17);
             mALOPLabel.TabIndex = 2;
@@ -102,7 +102,7 @@
             // mAKHLabel
             // 
             mAKHLabel.AutoSize = true;
-            mAKHLabel.Location = new System.Drawing.Point(13, 34);
+            mAKHLabel.Location = new System.Drawing.Point(11, 34);
             mAKHLabel.Name = "mAKHLabel";
             mAKHLabel.Size = new System.Drawing.Size(48, 17);
             mAKHLabel.TabIndex = 0;
@@ -161,7 +161,6 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
-            
             // 
             // btnSua
             // 
@@ -217,7 +216,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1452, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(1270, 51);
             // 
             // barDockControlBottom
             // 
@@ -225,7 +224,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 653);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1452, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1270, 20);
             // 
             // barDockControlLeft
             // 
@@ -239,7 +238,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1452, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(1270, 51);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 602);
             // 
@@ -250,13 +249,13 @@
             this.gcCoSo.Dock = System.Windows.Forms.DockStyle.Top;
             this.gcCoSo.Location = new System.Drawing.Point(0, 51);
             this.gcCoSo.Name = "gcCoSo";
-            this.gcCoSo.Size = new System.Drawing.Size(1452, 74);
+            this.gcCoSo.Size = new System.Drawing.Size(1270, 74);
             this.gcCoSo.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 34);
+            this.label1.Location = new System.Drawing.Point(19, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 17);
             this.label1.TabIndex = 1;
@@ -266,9 +265,9 @@
             // 
             this.cmbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCoSo.FormattingEnabled = true;
-            this.cmbCoSo.Location = new System.Drawing.Point(71, 31);
+            this.cmbCoSo.Location = new System.Drawing.Point(62, 31);
             this.cmbCoSo.Name = "cmbCoSo";
-            this.cmbCoSo.Size = new System.Drawing.Size(121, 24);
+            this.cmbCoSo.Size = new System.Drawing.Size(106, 24);
             this.cmbCoSo.TabIndex = 0;
             this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
@@ -280,15 +279,15 @@
             this.gcLop.MainView = this.gridView2;
             this.gcLop.MenuManager = this.barManager1;
             this.gcLop.Name = "gcLop";
-            this.gcLop.Size = new System.Drawing.Size(1452, 285);
+            this.gcLop.Size = new System.Drawing.Size(1270, 285);
             this.gcLop.TabIndex = 10;
             this.gcLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
-            // bdsKhoa
+            // bdsLop
             // 
-            this.bdsKhoa.DataMember = "KHOA";
-            this.bdsKhoa.DataSource = this.DS;
+            this.bdsLop.DataMember = "LOP";
+            this.bdsLop.DataSource = this.DS;
             // 
             // DS
             // 
@@ -303,39 +302,45 @@
             this.colMAKH1});
             this.gridView2.GridControl = this.gcLop;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.Editable = false;
             // 
             // colMALOP
             // 
             this.colMALOP.Caption = "Mã lớp";
             this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.MinWidth = 25;
+            this.colMALOP.MinWidth = 22;
             this.colMALOP.Name = "colMALOP";
             this.colMALOP.OptionsColumn.AllowEdit = false;
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 0;
-            this.colMALOP.Width = 94;
+            this.colMALOP.Width = 84;
             // 
             // colTENLOP
             // 
             this.colTENLOP.Caption = "Tên lớp";
             this.colTENLOP.FieldName = "TENLOP";
-            this.colTENLOP.MinWidth = 25;
+            this.colTENLOP.MinWidth = 22;
             this.colTENLOP.Name = "colTENLOP";
             this.colTENLOP.OptionsColumn.AllowEdit = false;
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 1;
-            this.colTENLOP.Width = 94;
+            this.colTENLOP.Width = 82;
             // 
             // colMAKH1
             // 
             this.colMAKH1.Caption = "Mã khoa";
             this.colMAKH1.FieldName = "MAKH";
-            this.colMAKH1.MinWidth = 25;
+            this.colMAKH1.MinWidth = 22;
             this.colMAKH1.Name = "colMAKH1";
             this.colMAKH1.OptionsColumn.AllowEdit = false;
             this.colMAKH1.Visible = true;
             this.colMAKH1.VisibleIndex = 2;
-            this.colMAKH1.Width = 94;
+            this.colMAKH1.Width = 82;
+            // 
+            // bdsKhoa
+            // 
+            this.bdsKhoa.DataMember = "KHOA";
+            this.bdsKhoa.DataSource = this.DS;
             // 
             // gcEdit
             // 
@@ -348,38 +353,33 @@
             this.gcEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcEdit.Location = new System.Drawing.Point(0, 410);
             this.gcEdit.Name = "gcEdit";
-            this.gcEdit.Size = new System.Drawing.Size(1452, 243);
+            this.gcEdit.Size = new System.Drawing.Size(1270, 243);
             this.gcEdit.TabIndex = 11;
             // 
             // cmbMaKhoa
             // 
             this.cmbMaKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMaKhoa.FormattingEnabled = true;
-            this.cmbMaKhoa.Location = new System.Drawing.Point(71, 31);
+            this.cmbMaKhoa.Location = new System.Drawing.Point(62, 31);
             this.cmbMaKhoa.Name = "cmbMaKhoa";
-            this.cmbMaKhoa.Size = new System.Drawing.Size(121, 24);
+            this.cmbMaKhoa.Size = new System.Drawing.Size(106, 24);
             this.cmbMaKhoa.TabIndex = 6;
             // 
             // txtTenLop
             // 
-            this.txtTenLop.Location = new System.Drawing.Point(528, 31);
+            this.txtTenLop.Location = new System.Drawing.Point(462, 31);
             this.txtTenLop.MenuManager = this.barManager1;
             this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Size = new System.Drawing.Size(125, 22);
+            this.txtTenLop.Size = new System.Drawing.Size(109, 22);
             this.txtTenLop.TabIndex = 5;
             // 
             // txtMaLop
             // 
-            this.txtMaLop.Location = new System.Drawing.Point(288, 31);
+            this.txtMaLop.Location = new System.Drawing.Point(252, 31);
             this.txtMaLop.MenuManager = this.barManager1;
             this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(125, 22);
+            this.txtMaLop.Size = new System.Drawing.Size(109, 22);
             this.txtMaLop.TabIndex = 3;
-            // 
-            // bdsLop
-            // 
-            this.bdsLop.DataMember = "LOP";
-            this.bdsLop.DataSource = this.DS;
             // 
             // LOPTableAdapter
             // 
@@ -406,9 +406,9 @@
             // 
             // FormLop
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 673);
+            this.ClientSize = new System.Drawing.Size(1270, 673);
             this.Controls.Add(this.gcEdit);
             this.Controls.Add(this.gcLop);
             this.Controls.Add(this.gcCoSo);
@@ -424,15 +424,15 @@
             this.gcCoSo.ResumeLayout(false);
             this.gcCoSo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsKhoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcEdit)).EndInit();
             this.gcEdit.ResumeLayout(false);
             this.gcEdit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
