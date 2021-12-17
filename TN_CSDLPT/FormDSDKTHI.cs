@@ -13,9 +13,11 @@ namespace TN_CSDLPT
 {
     public partial class FormDSDKTHI : Form
     {
+
         public FormDSDKTHI()
         {
             InitializeComponent();
+
         }
         private void btnPreview_Click(object sender, EventArgs e)
         {

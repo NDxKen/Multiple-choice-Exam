@@ -13,9 +13,8 @@ namespace TN_CSDLPT
 {
     public partial class FormBoDe : Form
     {
-        PhucHoi phucHoi = new PhucHoi();
-    //    private string maMonHoc = "";
-    //    private string maCauHoi = "";
+      //  PhucHoi phucHoi = new PhucHoi();
+    
         Boolean isDangThem = false, isDangSua = false;
         public FormBoDe()
         {
@@ -45,7 +44,7 @@ namespace TN_CSDLPT
             this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
             // TODO: This line of code loads data into the 'DS.CT_BAITHI' table. You can move, or remove it, as needed.
             this.cT_BAITHITableAdapter.Connection.ConnectionString = Program.connStr;
-          //  this.cT_BAITHITableAdapter.Fill(this.DS.CT_BAITHI);
+       //     this.cT_BAITHITableAdapter.Fill(this.DS.CT_BAITHI);
 
 
             cmb_TrinhDo.Items.Add("A");

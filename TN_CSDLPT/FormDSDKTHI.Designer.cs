@@ -29,7 +29,6 @@
         private void InitializeComponent()
 
         {
-
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,7 +47,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(195, 37);
+            this.label1.Location = new System.Drawing.Point(171, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(388, 35);
@@ -59,9 +58,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 102);
+            this.label2.Location = new System.Drawing.Point(202, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 17);
+            this.label2.Size = new System.Drawing.Size(61, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Từ ngày";
             // 
@@ -69,56 +68,57 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(231, 152);
+            this.label3.Location = new System.Drawing.Point(174, 152);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(107, 16);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Đến ngày";
+            this.label3.Text = "Đến trước ngày";
             // 
             // dptNgay1
             // 
             this.dptNgay1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dptNgay1.EditValue = null;
-            this.dptNgay1.Location = new System.Drawing.Point(341, 99);
+            this.dptNgay1.Location = new System.Drawing.Point(298, 99);
             this.dptNgay1.Name = "dptNgay1";
             this.dptNgay1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dptNgay1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dptNgay1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dptNgay1.Size = new System.Drawing.Size(151, 22);
+            this.dptNgay1.Size = new System.Drawing.Size(132, 22);
             this.dptNgay1.TabIndex = 5;
             // 
             // dptNgay2
             // 
             this.dptNgay2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dptNgay2.EditValue = null;
-            this.dptNgay2.Location = new System.Drawing.Point(341, 149);
+            this.dptNgay2.Location = new System.Drawing.Point(298, 149);
             this.dptNgay2.Name = "dptNgay2";
             this.dptNgay2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dptNgay2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dptNgay2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dptNgay2.Size = new System.Drawing.Size(151, 22);
+            this.dptNgay2.Size = new System.Drawing.Size(132, 22);
             this.dptNgay2.TabIndex = 6;
             // 
             // btnPreview
             // 
             this.btnPreview.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnPreview.Location = new System.Drawing.Point(307, 228);
+            this.btnPreview.Location = new System.Drawing.Point(269, 228);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(97, 51);
+            this.btnPreview.Size = new System.Drawing.Size(85, 51);
             this.btnPreview.TabIndex = 7;
             this.btnPreview.Text = "Preview";
             this.btnPreview.UseVisualStyleBackColor = true;
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
             // btnThoat
             // 
             this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnThoat.Location = new System.Drawing.Point(461, 228);
+            this.btnThoat.Location = new System.Drawing.Point(403, 228);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(97, 51);
+            this.btnThoat.Size = new System.Drawing.Size(85, 51);
             this.btnThoat.TabIndex = 8;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -126,9 +126,9 @@
             // 
             // FormDSDKTHI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 450);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.dptNgay2);
